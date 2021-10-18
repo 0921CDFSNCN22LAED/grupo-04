@@ -30,6 +30,11 @@ Decidimos idear una página de venta de NFT's, esta tendrá su versión Desktop 
 
 ![Desktop_-_MarketPlace_-_Home](https://user-images.githubusercontent.com/44672280/137801551-e2b2cd5d-e12f-4888-a8fc-e88c09098fb4.jpg)
 
+### Detalle de Producto
+
+![detalle-producto](https://user-images.githubusercontent.com/44672280/137807512-94898b04-6cce-4ef8-8135-dbaa2dd0217e.png)
+
+
 ### Mobile
 
 ![mobile-concepto](https://user-images.githubusercontent.com/44672280/137801980-60ed18fe-0cd1-4592-a7e4-b179025fd0b9.jpg)
