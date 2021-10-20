@@ -38,6 +38,10 @@ Decidimos idear una página de venta de NFT's, esta tendrá su versión Desktop 
 
 ![concepto-login](https://user-images.githubusercontent.com/44672280/138023780-bcb1a61f-3b60-4314-83dc-5ff33c80d87f.png)
 
+### Registro
+
+![concepto-register](https://user-images.githubusercontent.com/44672280/138026642-5ad68341-56cd-4690-a607-8066fa63c9e2.png)
+
 ### Carrito
 
 ![concepto-carrito](https://user-images.githubusercontent.com/44672280/138023806-e5b7b4f1-d07f-4d5c-9ac7-9ea592a1e20f.png)
