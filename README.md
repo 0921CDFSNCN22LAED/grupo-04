@@ -32,6 +32,5 @@ Decidimos idear una página de venta de NFT's, esta tendrá su versión Desktop 
 ![mobile-primero](https://user-images.githubusercontent.com/44672280/138212048-6e57e059-fd9f-433d-8c26-c7d339a057af.png)
 
 
+![mobile-login-register-cart](https://user-images.githubusercontent.com/44672280/138345685-dff19326-c2a9-4f87-b4cb-e82d90b8c0b0.png)
 
-
-*Pendiente el diseño del otro concepto en Mobile (registro, login, detalle de producto)*
