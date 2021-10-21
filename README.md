@@ -1,10 +1,10 @@
-# Proyecto Integrador - Grupo 4
+# Proyecto Integrador - Grupo 4 - CALAMARKET
 
 ## Concepto
 
 Decidimos idear una página de venta de NFT's, esta tendrá su versión Desktop como también Mobile, buscando así llegar a todos los mercados posibles. Nuestro target son principalmente las personas interesadas en el mundo cripto, que busquen no solo generar ganancias si no que también aprecien las nuevas formas de distribución del arte que tenemos hoy en día gracias a la tecnología.
 
-*Pendiente nombre del proyecto y logo*
+*Pendiente logo*
 
 ## Referencias
 
