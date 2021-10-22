@@ -1,0 +1,22 @@
+{
+  "name": "grupo-04",
+  "version": "1.0.0",
+  "description": "Page por selling NFTs, it's named Calamarket.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0921CDFSNCN22LAED/grupo-04.git"
+  },
+  "author": "Grupo 4 DH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0921CDFSNCN22LAED/grupo-04/issues"
+  },
+  "homepage": "https://github.com/0921CDFSNCN22LAED/grupo-04#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

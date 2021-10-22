@@ -1,0 +1,66 @@
+html,
+body {
+  font-family: 'Roboto',
+    sans-serif;
+  font-size: 12px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.logo {
+  width: 20%;
+  margin-left: 5px;
+}
+
+h1 {
+   margin: auto;
+   font-size: 2.7rem;
+}
+
+h2 {
+  margin: 0;
+}
+
+.container {
+  padding: 10px;
+  height: 80vh;
+  text-align: center;
+  background-color: #EEDCEB;
+}
+
+header nav {
+  width: 100%;
+  height: 10vh;
+  background-color: #A6D6C8;
+  border-bottom: solid black 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+}
+
+footer nav {
+  width: 100%;
+  height: 10vh;
+  border-top: solid black 1px;
+  background-color: #A6D6C8;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+}
+
+.home-img-container {
+  margin: 150px auto;
+}
+
+.home-img {
+  width: 50%;
+}
+
+button {
+  padding: 15px 25px;
+  text-transform: uppercase;
+}
