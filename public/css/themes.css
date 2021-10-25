@@ -61,6 +61,15 @@ footer nav {
 }
 
 button {
-  padding: 15px 25px;
+  margin-bottom: 15px;
+  border-radius: 10%;
+  padding: 15px 40px;
   text-transform: uppercase;
+}
+
+input {
+  font-size: 20px;
+  margin-bottom: 20px;
+  border-radius: 10%;
+  padding: 15px;
 }
