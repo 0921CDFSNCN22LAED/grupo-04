@@ -1,0 +1,17 @@
+@media (min-width: 768px){
+    .burger-menu{
+        display: none;
+    }
+
+    .main-navbar{
+        display: flex;
+    }
+
+    .main-navbar ul{
+        display: flex;
+    }
+
+    .main-navbar li{
+        margin: 0 5px;
+    }
+}
