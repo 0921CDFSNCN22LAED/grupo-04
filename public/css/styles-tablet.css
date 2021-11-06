@@ -5,6 +5,9 @@
 
     .main-navbar{
         display: flex;
+        align-items: center;
+        margin-right: 15px;
+        font-size: 1.2em;
     }
 
     .main-navbar ul{
