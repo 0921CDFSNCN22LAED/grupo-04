@@ -12,6 +12,7 @@
 
     .main-navbar ul{
         display: flex;
+        align-items: center;
     }
 
     .main-navbar li{
