@@ -33,7 +33,8 @@ h2 {
 
 .container {
   text-align: center;
-  /* background-color: #EEDCEB; */
+  margin-top: 110px;
+  margin-bottom: 100px;
 }
 
 header nav {
