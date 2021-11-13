@@ -5,10 +5,6 @@ body {
   /* font-size: 12px; */
 }
 
-/* img {
-  max-width: 100%;
-} */
-
 .logo {
   width: 45px;
 }
@@ -20,16 +16,6 @@ body {
 .icon-simple{
   height: 35px;
 }
-
-
-/* h1 {
-   margin: auto;
-   font-size: 2.7rem;
-}
-
-h2 {
-  margin: 0;
-} */
 
 .container {
   text-align: center;
@@ -53,24 +39,9 @@ footer nav {
   align-self: center;
 }
 
-.home-img-container {
-  margin: 150px auto;
-}
-
-.home-img {
-  width: 50%;
-}
-
-button {
-  margin-bottom: 15px;
-  border-radius: 10%;
-  padding: 15px 40px;
-  text-transform: uppercase;
-}
-
-input {
+.design-btn {
   font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border-radius: 10%;
   padding: 15px;
 }

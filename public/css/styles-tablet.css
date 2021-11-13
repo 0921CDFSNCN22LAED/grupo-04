@@ -1,22 +1,7 @@
 @media (min-width: 768px){
-  .burger-menu{
-    display: none;
-  }
-
-  .main-navbar{
-    display: flex;
-    align-items: center;
-    margin-right: 15px;
-    font-size: 1.2em;
-  }
-
-  .main-navbar ul{
-    display: flex;
-    align-items: center;
-  }
-
-  .main-navbar li{
-    margin: 0 5px;
+  
+  .bar-search{
+    width: 275px;
   }
 
 }
