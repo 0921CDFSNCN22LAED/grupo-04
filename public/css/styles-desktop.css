@@ -1,6 +1,8 @@
-/* @media (min-width: 1024px){
-
-} */
+@media (min-width: 1024px){
+  .sec-product{
+    flex-wrap: nowrap;
+  }
+}
 
 /* @media (min-width: 991px){
 
