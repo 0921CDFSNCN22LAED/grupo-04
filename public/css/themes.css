@@ -36,9 +36,21 @@ footer nav {
   align-self: center;
 }
 
+.design-input{
+  font-size: 20px;
+  margin-bottom: 10px;
+  border-radius: 10%;
+  padding: 10px;
+}
+
 .design-btn {
   font-size: 20px;
   margin-bottom: 10px;
   border-radius: 10%;
   padding: 10px;
+  transition: background-color 450ms;
+}
+
+.design-btn:hover{
+  background-color: #A6D6C8;
 }
