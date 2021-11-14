@@ -165,16 +165,28 @@
 
 <!-- fin barra de navegacion -->
 
+<!-- inicio contenido principal -->
+
     <main class="container">
-      <section>
+      <section class="">
         <div>
           <h2>Welcome to Calamarket!</h2>
           <p>Discover the art of the future, welcome to a new age!</p>
-          <button class="design-btn">EXPLORE</button>
-          <button class="design-btn">ABOUT US</button>
+
+          <!-- inicio boton categorias -->
+          <div class="dropend mt-2 d-flex justify-content-start"> 
+          <button class="design-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">CATEGORIAS</button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Accion</a></li>
+            <li><a class="dropdown-item" href="#">Anime</a></li>
+            <li><a class="dropdown-item" href="#">Otra categoria</a></li>
+          </ul>
+          </div>
         </div>
+         <!-- fin boton categorias -->
        
-        <section class="container-xxl sec-product d-flex flex-column-xs flex-wrap row-xxl">
+        <h2 class="mt-3 mb-5">Mas vistos</h2>
+        <section class="container-xxl sec-product d-flex flex-column-xs flex-wrap row-xxl justify-content-center">
 
           <div class="card mb-3 mx-3 shadow col-xxl" style="width: 18rem;">
             <img src="/images/calamardos-nft/ryu.jpg" class="card-img-top" alt="...">
@@ -242,7 +254,7 @@
       </section>
     </main>
 
-
+<!-- fin contenido principal -->
 
 
 

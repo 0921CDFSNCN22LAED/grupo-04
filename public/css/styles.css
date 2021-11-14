@@ -6,6 +6,8 @@
   background-color: #d3bcd63d;
 }
 
+/* estilos card nft  */
+
 .fa-heart{
   color: #A6D6C8;
 }
@@ -22,12 +24,14 @@
   color: slategray;
 }
 
-.modal-backdrop{
-  z-index: 999;
-}
-
 .card-cart{
   max-width: 8rem;
+}
+
+/* estilos modal carrito */
+
+.modal-backdrop{
+  z-index: 999;
 }
 
 .modal-dialog-scrollable .modal-content {

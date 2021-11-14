@@ -29,7 +29,7 @@ body {
 
 footer nav {
   height: 10vh;
-  border-top: solid black 1px;
+  /* border-top: solid black 1pxs; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -40,5 +40,5 @@ footer nav {
   font-size: 20px;
   margin-bottom: 10px;
   border-radius: 10%;
-  padding: 15px;
+  padding: 10px;
 }
