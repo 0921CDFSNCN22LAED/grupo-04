@@ -25,3 +25,11 @@
 .modal-backdrop{
   z-index: 999;
 }
+
+.card-cart{
+  max-width: 8rem;
+}
+
+.modal-dialog-scrollable .modal-content {
+  max-height: 90%;
+}
