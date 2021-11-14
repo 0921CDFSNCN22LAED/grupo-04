@@ -5,3 +5,23 @@
 .bg_secondary{
   background-color: #d3bcd63d;
 }
+
+.fa-heart{
+  color: #A6D6C8;
+}
+
+.fa-heart:hover{
+  color: red;
+}
+
+.fa-cart-plus{
+  color: #A6D6C8;
+}
+
+.fa-cart-plus:hover{
+  color: slategray;
+}
+
+.modal-backdrop{
+  z-index: 999;
+}
