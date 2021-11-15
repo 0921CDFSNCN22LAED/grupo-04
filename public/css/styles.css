@@ -10,6 +10,7 @@
 
 .fa-heart{
   color: #A6D6C8;
+  transition: color 450ms;
 }
 
 .fa-heart:hover{
@@ -18,6 +19,7 @@
 
 .fa-cart-plus{
   color: #A6D6C8;
+  transition: color 450ms;
 }
 
 .fa-cart-plus:hover{
