@@ -28,7 +28,7 @@ Decidimos idear una página de venta de NFT's, esta tendrá su versión Desktop 
 
 
 ### Tomas Salvatore
-(agregar info)
+ Tengo 23 años, me encanta aprender cosas nuevas y resolver problemas. Después de hacer varios cursos por cuenta propia me anoté en DH y acá estamos, cada día me gusta más la programación y estoy muy feliz de la decisión que tomé. 
 
 
 #### Tablero de Trello:
