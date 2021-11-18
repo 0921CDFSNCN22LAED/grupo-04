@@ -24,7 +24,7 @@ Decidimos idear una página de venta de NFT's, esta tendrá su versión Desktop 
 
 
 ### Nicolas Di Perna
-(agregar info)
+Tengo 17 años, recien estoy aventurandome en la vida y me encuentro probando de todo para ver que va a ser de mi en el futuro.
 
 
 ### Tomas Salvatore
