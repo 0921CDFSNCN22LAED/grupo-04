@@ -33,14 +33,24 @@ footer a.text-light:hover {
   transition-duration: 450ms;
 }
 
-footer nav {
+footer > nav > div > ul > li > a > img{
+  max-width: 25px;
+}
+
+
+/* footer nav {
   height: 10vh;
-  /* border-top: solid black 1pxs; */
+  border-top: solid black 1pxs;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-self: center;
-}
+} */
+
+
+
+
+/* Diseño Botones e Input  */
 
 .design-input{
   font-size: 20px;
