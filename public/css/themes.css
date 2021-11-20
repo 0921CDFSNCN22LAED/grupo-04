@@ -17,7 +17,7 @@ body {
   height: 35px;
 }
 
-.container {
+.body-container {
   text-align: center;
   margin-top: 110px;
   margin-bottom: 100px;
@@ -26,6 +26,12 @@ body {
 /* header nav {
   border-bottom: solid black 1px;
 } */
+
+/* Footer */
+footer a.text-light:hover {
+  color: #bfbfbf !important;
+  transition-duration: 450ms;
+}
 
 footer nav {
   height: 10vh;
