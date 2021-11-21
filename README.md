@@ -16,7 +16,7 @@ Decidimos idear una página de venta de NFT's, esta tendrá su versión Desktop 
 ## Sobre Nosotros
 
 ### Ayelen Alvo
- Desde que conoci la Programacion quede fascinada. Me encanta adquirir nuevos conocimientos y mi principal virtud es ser autodidacta.
+ Tengo 33 años, desde que conoci la Programacion quede fascinada. Me encanta leer y adquirir nuevos conocimientos. Mi principal virtud es ser autodidacta.
  
 
 ### Abraham Jose
