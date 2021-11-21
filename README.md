@@ -20,7 +20,7 @@ Decidimos idear una página de venta de NFT's, esta tendrá su versión Desktop 
  
 
 ### Abraham Jose
-Hola soy Abraham,Géminis (♊︎) me dicen Abe, amante de los videos juegos, el cine, el manga y el anime, tengo 34 años mi color favorito es el verde y me gustan los sanguchitos de miga (en todos sus sabores! ♥ ) actualemten estoy incursionando con el tema de la programacion, se me hace muy dificil, pero en este grupo encontré gente que hace que sea mas ameno el impacto, la suerte hizo (mas bien dicho los profes hicieron) que me los cruzara! 
+Hola soy Abraham,Géminis (♊︎) me dicen Abe, amante de los videos juegos, el cine, el manga y el anime, tengo 34 años mi color favorito es el verde y me gustan los sanguchitos de miga (en todos sus sabores! ♥ ) actualmente estoy incursionando con el tema de la programacion, se me hace muy dificil, pero en este grupo encontré gente que hace que sea mas ameno el impacto, la suerte hizo (mas bien dicho los profes hicieron) que me los cruzara! 
 Un gusto! y sigamos avanzando! 💪
 
 
