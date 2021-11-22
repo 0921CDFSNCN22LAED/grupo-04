@@ -16,6 +16,7 @@ const controlador = {
   },
   create: (req, res) => {
     res.render('admin-create-products');
+    // res.redirect('/admin-edit');
   }
 };
 
