@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/1c47cb3d39.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/themes.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/styles-tablet.css" />
+
+    <title>Calamarket</title>
+  </head>
+  <body class="bg_secondary">
+    <!-- inicio barra de navegacion -->
+    <header><%- include("./partials/NavBar") %></header>
+    <!-- fin barra de navegacion -->
+
+    <main class="container body-container">     
+
+      <h1>Carga de Productos</h1>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text design-input" id="basic-addon1">Nombre:</span>
+        <input type="text" class="form-control design-input" placeholder="nombre" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text design-input" id="basic-addon1">Imagen NFT:</span>
+        <input type="file" class="form-control design-btn" placeholder="imagenNFT" id="inputFile" accept=".jpg" multiple>
+      </div>
+      
+      <div class="input-group mb-3">
+        <label class="input-group-text design-input" for="inputGroupSelect01">Categoria</label>
+        <select class="form-select design-btn" id="inputGroupSelect01">
+          <option selected>Choose...</option>
+          <option value="1">Anime</option>
+          <option value="2">Accion</option>
+          <option value="3">Otro</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text design-input" id="basic-addon3">Fecha de creacion</span>
+        <input type="date" class="form-control design-input" id="basic-url" aria-describedby="basic-addon3">
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-text design-input">descripcion</span>
+        <textarea class="form-control design-input" aria-label="With textarea"></textarea>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text design-input" id="basic-addon1"><i class="fas fa-gem mx-1"></i></span>
+        <input type="number" class="form-control design-input" placeholder="price" aria-label="Username" aria-describedby="basic-addon1">
+        <span class="input-group-text design-input">ETH</span>
+      </div>
+            
+          </section>
+            <button class="design-btn">GUARDAR</button>
+          </section>
+
+          <section>
+            <button class="design-btn">Ir a Editar</button>
+          <section>
+   
+    </main>
+
+    <!-- inicio footer -->
+
+    <%- include("./partials/Footer") %>
+
+    <!-- fin footer -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

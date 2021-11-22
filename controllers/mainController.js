@@ -11,6 +11,12 @@ const controlador = {
   market: (req, res) => {
     res.render('market');
   },
+  edit: (req, res) => {
+    res.render('admin-edit-products');
+  },
+  create: (req, res) => {
+    res.render('admin-create-products');
+  }
 };
 
 module.exports = controlador;
