@@ -60,11 +60,11 @@
               <div class="d-flex justify-content-between">
                 <a href=""><i class="fas fa-cart-plus"></i></a>
                 <!-- modal detalle producto -->
-                <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalArt1">
+                <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalArt<%= card.id %>">
                   VER
                 </button>
                 <!-- Modal -->
-                <div class="modal fade" id="modalArt1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="modalArt<%= card.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
                       <div class="modal-header">
