@@ -41,18 +41,25 @@ const controlador = {
     });
   },
   login: (req, res) => {
-    res.render('login');
+    res.render('login', {
+      pageTitle: 'Login - Calamarket',
+    });
   },
   register: (req, res) => {
-    res.render('register');
+    res.render('register', {
+      pageTitle: 'Register - Calamarket',
+    });
   },
   market: (req, res) => {
     res.render('market',{
+      pageTitle: 'Marketplace - Calamarket',
       listCards: listCards
     });
   },
   edit: (req, res) => {
-    res.render('admin-edit-products');
+    res.render('admin-edit-products', {
+      pageTitle: 'Admin - Calamarket',
+    });
   },
   create: (req, res) => {
     res.render('admin-create-products');
