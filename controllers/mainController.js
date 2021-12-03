@@ -36,7 +36,9 @@ const listCards = [
 
 const controlador = {
   home: (req, res) => {
-    res.render('home');
+    res.render('home', {
+      pageTitle: 'Home - Calamarket',
+    });
   },
   login: (req, res) => {
     res.render('login');
