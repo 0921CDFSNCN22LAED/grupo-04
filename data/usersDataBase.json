@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "name": "Abraham",
+    "userName": "Abe",
+    "mail": "abe@calamarket.com",
+    "password": "2222",
+    "avatar": "null",
+    "role": "admin"
+  },
+  {
+    "id": "2",
+    "name": "Tomas",
+    "userName": "Tomi",
+    "mail": "tomi@calamarket.com",
+    "password": "3333",
+    "avatar": "null",
+    "role": "admin"
+  },
+  {
+    "id": "3",
+    "name": "Nicolas",
+    "userName": "Nico",
+    "mail": "nico@calamarket.com",
+    "password": "4444",
+    "avatar": "null",
+    "role": "admin"
+  },
+  {
+    "id": "4",
+    "name": "Ayelen",
+    "userName": "Aye",
+    "mail": "tomi@calamarket.com",
+    "password": "5555",
+    "avatar": "null",
+    "role": "admin"
+  },
+  {
+    "id": "5",
+    "name": "Pablo",
+    "userName": "Pepito",
+    "mail": "pepito@gmail.com",
+    "password": "1234",
+    "avatar": "null",
+    "role": "user"
+  },
+  {
+    "id": "6",
+    "name": "Santiago",
+    "userName": "Santi14",
+    "mail": "santi@gmail.com",
+    "password": "1234",
+    "avatar": "null",
+    "role": "user"
+  }
+]
