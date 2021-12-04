@@ -16,7 +16,7 @@ router.get('/admin-edit', controlador.edition);
 router.get('/admin-edit/:id', controlador.edit);
 router.put('/:id', controlador.update);
 
-/*** CREATE ONE CARD (sin terminar)***/ 
+/*** CREATE ONE CARD (falta implear multer)***/ 
 router.get('/admin-create', controlador.create);
 router.post('/admin-create', controlador.new);
 

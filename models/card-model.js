@@ -28,7 +28,7 @@ module.exports = {
     card.date = dato.date;
     card.category = dato.category;
     card.desc = dato.desc;
-    // img
+    // img 
   
     saveCards();
    },
