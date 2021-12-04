@@ -14,8 +14,12 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('Servidor funcionando');
 });
 
 app.use('/', mainRoute);
+
+app.use((req, res, next) => {
+  res.status(404).render("not-found");
+});
