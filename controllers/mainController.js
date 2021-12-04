@@ -1,37 +1,5 @@
-const listCards = [
-  {
-    id: "1",
-    name: "Ryu",
-    desc: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-    date: "14/11/2021",
-    price: "0.5",
-    img: "/images/calamardos-nft/ryu.jpg",
-  },
-  {
-    id: "2",
-    name: "Sailor Moon",
-    desc: "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    date: "15/11/2021",
-    price: "0.6",
-    img: "/images/calamardos-nft/sailor_moon1.jpg",
-  },
-  {
-    id: "3",
-    name: "Sasuke",
-    desc: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-    date: "16/11/2021",
-    price: "0.3",
-    img: "/images/calamardos-nft/sasukeFinal.jpg",
-  },
-  {
-    id: "4",
-    name: "Ryu2",
-    desc: "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    date: "14/11/2021",
-    price: "0.5",
-    img: "/images/calamardos-nft/ryu.jpg",
-  }
-];
+const { deleteOne } = require('../models/card-model');
+const cardsModel = require('../models/card-model');
 
 
 const controlador = {
@@ -40,30 +8,63 @@ const controlador = {
       pageTitle: 'Home - Calamarket',
     });
   },
+
   login: (req, res) => {
     res.render('login', {
       pageTitle: 'Login - Calamarket',
     });
   },
+
   register: (req, res) => {
     res.render('register', {
       pageTitle: 'Register - Calamarket',
     });
   },
+
   market: (req, res) => {
     res.render('market',{
       pageTitle: 'Marketplace - Calamarket',
-      listCards: listCards
+      listCards: cardsModel.getAll(),
     });
   },
-  edit: (req, res) => {
-    res.render('admin-edit-products', {
+
+  edition: (req, res) => {
+    res.render('admin-cards', {
       pageTitle: 'Admin - Calamarket',
+      listCards: cardsModel.getAll(),
     });
   },
+
+  edit: (req, res) => {
+    const id = req.params.id;
+    const card = cardsModel.findOne(id);
+
+    res.render('admin-edit-cards', {
+      pageTitle: 'Admin - Calamarket',
+      card: card,
+    });
+  },
+
+  update: (req, res) => {
+    const id = req.params.id;
+		const dato = req.body;
+		const card = cardsModel.findOne(id);
+
+		cardsModel.updateOne(card, dato);
+
+		res.redirect('/admin-edit');
+  },
+
   create: (req, res) => {
-    res.render('admin-create-products');
+    res.render('admin-create-cards');
     // res.redirect('/admin-edit');
+  },
+
+  destroy: (req, res) => {
+    const id = req.params.id;
+    deleteOne(id);
+
+    res.redirect('/admin-edit');
   }
 };
 

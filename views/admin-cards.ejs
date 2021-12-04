@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/Head") %>
+  </head>
+  <body class="bg_secondary">
+
+    <!-- inicio barra de navegacion -->
+    <header><%- include("./partials/NavBar") %></header>
+
+    <!-- <script>
+      document.querySelector('#search-bar').classList.remove('d-none');
+    </script> -->
+
+<!-- fin barra de navegacion -->
+
+<!-- inicio contenido principal -->
+
+    <main class="container body-container">
+      <section class="">
+        <div>
+          <h2>Edición de Productos</h2>
+          <p>Selecciona o busca lo que necesites</p>
+
+          <!-- inicio boton categorias -->
+          <div class="dropend mt-2 d-flex justify-content-start">
+          <button class="design-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">CATEGORIAS</button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Accion</a></li>
+            <li><a class="dropdown-item" href="#">Anime</a></li>
+            <li><a class="dropdown-item" href="#">Otra categoria</a></li>
+          </ul>
+          </div>
+        </div>
+         <!-- fin boton categorias -->
+
+         <!--inicio ULTIMOS AGREGADOS -->
+        <h2 class="mt-3 mb-5">Ultimos agregados</h2>
+        <section class="container-xxl sec-product d-flex flex-column-xs flex-wrap row-xxl justify-content-center">
+
+          <% for(let card of listCards){ %>
+           <!-- inicio articulo -->
+           <div class="card mb-3 mx-3 shadow col-xxl" style="width: 18rem;">
+            <img src="<%= card.img %>" class="card-img-top" alt="<%= card.name %>">
+            <div class="card-body">
+              <h5 class="card-title"> <%= card.name %> </h5>
+              <p class="card-text"> <%= card.desc %> </p>
+              <div class="d-flex justify-content-between">
+                <form action="/<%= card.id %>?_method=DELETE" method="POST">               
+                  <button type="submit" class="btn btn-outline-success btn-sm">
+                   Borrar
+                </form>   
+                </button>
+                <button type="button" class="btn btn-outline-success btn-sm"><a href="/admin-edit/<%= card.id %>">
+                  EDITAR</a>
+                </button>                
+                <div>
+                <i class="fas fa-gem mx-1"></i> <%= card.price %> ETH
+                </div>
+              </div>
+            </div>
+          </div>
+           <!-- fin articulo -->
+          <% } %>            
+         
+        </section>
+         <!-- fin ULTIMOS AGREGADOS -->
+
+         <section>
+          <a href="/admin-create"><button class="design-btn">Cargar nuevo Producto</button></a>
+        <section>
+
+      </section>
+    </main>
+<!-- fin contenido principal -->
+
+
+<!-- inicio footer -->
+
+ <%- include("./partials/Footer") %>
+
+<!-- fin footer -->
+
+<!-- Scripts -->
+<%- include("./partials/Scripts") %>
+
+  </body>
+</html>

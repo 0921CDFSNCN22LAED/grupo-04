@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/Head") %>
+  </head>
+  <body class="bg_secondary">
+    <!-- inicio barra de navegacion -->
+    <header><%- include("./partials/NavBar") %></header>
+    <!-- fin barra de navegacion -->
+
+    <main class="container body-container">     
+
+      <h1>Estas editando <%= card.name %></h1>
+
+    <form action="/<%= card.id %>?_method=PUT" method="POST">
+      <div class="input-group mb-3">
+        <span class="input-group-text design-input" id="basic-addon1">Nombre:</span>
+        <input type="text" class="form-control design-input" placeholder="nombre" aria-describedby="basic-addon1" name="name" value="<%= card.name %>">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text design-input" id="basic-addon1">Imagen NFT:</span>
+        <input type="file" class="form-control design-btn" placeholder="imagenNFT" id="inputFile" accept=".jpg" multiple name="image">
+      </div>
+      
+      <div class="input-group mb-3">
+        <label class="input-group-text design-input" for="inputGroupSelect01">Categoria</label>
+        <select class="form-select design-btn" id="inputGroupSelect01" name="category">
+          <option selected>Choose...</option>
+          <option value="1">Anime</option>
+          <option value="2">Accion</option>
+          <option value="3">Otro</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text design-input" id="basic-addon3">Fecha de creacion</span>
+        <input type="date" class="form-control design-input" id="basic-url" aria-describedby="basic-addon3" name="date" value="<%= card.date %>">
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-text design-input">descripcion</span>
+        <textarea class="form-control design-input" aria-label="With textarea" name="desc" value=""><%= card.desc %></textarea>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text design-input" id="basic-addon1"><i class="fas fa-gem mx-1"></i></span>
+        <input type="number" class="form-control design-input" placeholder="price" aria-describedby="basic-addon1" name="price" value="<%= card.price %>">
+        <span class="input-group-text design-input">ETH</span>
+      </div>
+            
+      </section>
+        <button type="submit" class="design-btn">GUARDAR</button>
+      </section>
+         
+    </form>  
+
+    <section>
+      <a href="/admin-edit"><button class="design-btn">Ir a Edición</button></a>
+    <section>
+    </main>
+
+    <!-- inicio footer -->
+
+    <%- include("./partials/Footer") %>
+
+    <!-- fin footer -->
+
+   <!-- Scripts -->
+   <%- include("./partials/Scripts") %>
+  </body>
+</html>

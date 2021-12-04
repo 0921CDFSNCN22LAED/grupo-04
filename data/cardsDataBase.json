@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "img": "/images/calamardos-nft/ryu.jpg",
+    "name": "Ryu",
+    "date": "2021-12-03",
+    "category": "2",
+    "desc": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    "price": "5"
+  },
+  {
+    "id": "2",
+    "name": "Sailor Moon",
+    "desc": "This is a wider card with supporting text below as a natural lead-in to additional content.",
+    "date": "15/11/2021",
+    "price": "0.6",
+    "category": "anime",
+    "img": "/images/calamardos-nft/sailor_moon1.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Sasuke",
+    "desc": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    "date": "16/11/2021",
+    "price": "0.3",
+    "category": "anime",
+    "img": "/images/calamardos-nft/sasukeFinal.jpg"
+  },
+  {
+    "id": "4",
+    "img": "/images/calamardos-nft/ryu.jpg",
+    "name": "Ryu2",
+    "date": "2021-12-03",
+    "category": "2",
+    "desc": "This is a wider card with supporting text below as a natural lead-in to additional content.",
+    "price": "3"
+  }
+]
