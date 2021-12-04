@@ -32,6 +32,16 @@ module.exports = {
   
     saveCards();
    },
+
+   createOne(body){
+    const card = {
+      id: Date.now(), //timestamp
+      ...body,
+    };
+
+    listCards.push(card);
+    saveCards();
+   },
   
    deleteOne(id){
     const index = listCards.findIndex(card => card.id == id);

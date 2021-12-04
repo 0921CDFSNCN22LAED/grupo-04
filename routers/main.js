@@ -18,7 +18,7 @@ router.put('/:id', controlador.update);
 
 /*** CREATE ONE CARD (sin terminar)***/ 
 router.get('/admin-create', controlador.create);
-router.post('/admin-create', controlador.create);
+router.post('/admin-create', controlador.new);
 
 
 /*** DELETE ONE PRODUCT***/ 

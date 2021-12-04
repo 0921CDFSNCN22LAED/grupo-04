@@ -5,32 +5,32 @@ const cardsModel = require('../models/card-model');
 const controlador = {
   home: (req, res) => {
     res.render('home', {
-      pageTitle: 'Home - Calamarket',
+      pageTitle: 'Home - ',
     });
   },
 
   login: (req, res) => {
     res.render('login', {
-      pageTitle: 'Login - Calamarket',
+      pageTitle: 'Login - ',
     });
   },
 
   register: (req, res) => {
     res.render('register', {
-      pageTitle: 'Register - Calamarket',
+      pageTitle: 'Register - ',
     });
   },
 
   market: (req, res) => {
     res.render('market',{
-      pageTitle: 'Marketplace - Calamarket',
+      pageTitle: 'Marketplace - ',
       listCards: cardsModel.getAll(),
     });
   },
 
   edition: (req, res) => {
     res.render('admin-cards', {
-      pageTitle: 'Admin - Calamarket',
+      pageTitle: 'Admin - ',
       listCards: cardsModel.getAll(),
     });
   },
@@ -40,7 +40,7 @@ const controlador = {
     const card = cardsModel.findOne(id);
 
     res.render('admin-edit-cards', {
-      pageTitle: 'Admin - Calamarket',
+      pageTitle: 'Admin - ',
       card: card,
     });
   },
@@ -56,8 +56,14 @@ const controlador = {
   },
 
   create: (req, res) => {
-    res.render('admin-create-cards');
-    // res.redirect('/admin-edit');
+    res.render('admin-create-cards', {
+      pageTitle: 'Admin - ',
+    });
+  },
+
+  new: (req, res) => {
+    cardsModel.createOne(req.body)
+    res.redirect('/admin-edit');
   },
 
   destroy: (req, res) => {

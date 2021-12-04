@@ -27,9 +27,13 @@
         <label class="input-group-text design-input" for="inputGroupSelect01">Categoria</label>
         <select class="form-select design-btn" id="inputGroupSelect01" name="category">
           <option selected>Choose...</option>
-          <option value="1">Anime</option>
-          <option value="2">Accion</option>
-          <option value="3">Otro</option>
+          <% if (card.category == "anime"){ %> 
+          <option value="anime" selected>Anime</option>
+          <% }else if (card.category == "accion"){ %>
+          <option value="accion" selected>Accion</option>
+          <% } else{ %> 
+          <option value="otro" selected>Otro</option>
+          <% } %> 
         </select>
       </div>
 
