@@ -12,7 +12,7 @@
 
       <h1>Estas editando <%= card.name %></h1>
 
-    <form action="/<%= card.id %>?_method=PUT" method="POST">
+    <form action="/<%= card.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
       <div class="input-group mb-3">
         <span class="input-group-text design-input" id="basic-addon1">Nombre:</span>
         <input type="text" class="form-control design-input" placeholder="nombre" aria-describedby="basic-addon1" name="name" value="<%= card.name %>">
