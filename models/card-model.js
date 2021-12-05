@@ -22,20 +22,22 @@ module.exports = {
     return card;
   },
 
-  updateOne(card, dato){
+  updateOne(card, dato, file){
     card.name = dato.name;
     card.price = dato.price;
     card.date = dato.date;
     card.category = dato.category;
     card.desc = dato.desc;
-    // img 
-  
+    if(file){
+     card.image = '/images/calamardos-nft/' + file.filename; // no funciona esta parte
+    }
     saveCards();
    },
 
-   createOne(body){
+   createOne(body, file){
     const card = {
       id: Date.now(), //timestamp
+      image: '/images/calamardos-nft/' + file.filename,
       ...body,
     };
 

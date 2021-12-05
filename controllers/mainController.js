@@ -49,8 +49,9 @@ const controlador = {
     const id = req.params.id;
 		const dato = req.body;
 		const card = cardsModel.findOne(id);
+    const file = req.file;
 
-		cardsModel.updateOne(card, dato);
+		cardsModel.updateOne(card, dato, file);
 
 		res.redirect('/admin-edit');
   },
@@ -62,7 +63,7 @@ const controlador = {
   },
 
   new: (req, res) => {
-    cardsModel.createOne(req.body)
+    cardsModel.createOne(req.body, req.file)
     res.redirect('/admin-edit');
   },
 
