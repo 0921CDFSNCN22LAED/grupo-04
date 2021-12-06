@@ -9,3 +9,4 @@ Trabajamos de manera coordinada y orientada a nuestros objetivos. Se destaca una
 Nos sigue faltando mejorar la comunicación y que todos hagamos commits.
 
 ## Retro 3er Sprint
+Si bien hemos obtenido un feedback positivo en estos ultimos sprits, vamos a tomar el compromiso de hacer un poco mas equitativa la distribución y división de tareas, asi podemos participar entre todos e ir realizando commits entre todos los integrantes del grupo.
