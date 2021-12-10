@@ -18,7 +18,7 @@ module.exports = {
   },
 
   findOne(id){
-    const card = listCards.find(card => card.id === id);
+    const card = listCards.find(card => card.id == id);
     return card;
   },
 
@@ -29,7 +29,7 @@ module.exports = {
     card.category = dato.category;
     card.desc = dato.desc;
     if(file){
-     card.image = '/images/calamardos-nft/' + file.filename; // no funciona esta parte
+     card.image = '/images/calamardos-nft/' + file.filename;
     }
     saveCards();
    },
