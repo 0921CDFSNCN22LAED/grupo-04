@@ -1,5 +1,5 @@
-const { deleteOne } = require('../models/card-model');
-const cardsModel = require('../models/card-model');
+const { deleteOne } = require('../services/card-model');
+const cardsModel = require('../services/card-model');
 
 
 const controlador = {
@@ -9,17 +9,17 @@ const controlador = {
     });
   },
 
-  login: (req, res) => {
-    res.render('login', {
-      pageTitle: 'Login - ',
-    });
-  },
+  // login: (req, res) => {
+  //   res.render('login', {
+  //     pageTitle: 'Login - ',
+  //   });
+  // },
 
-  register: (req, res) => {
-    res.render('register', {
-      pageTitle: 'Register - ',
-    });
-  },
+  // register: (req, res) => {
+  //   res.render('register', {
+  //     pageTitle: 'Register - ',
+  //   });
+  // },
 
   market: (req, res) => {
     res.render('market',{

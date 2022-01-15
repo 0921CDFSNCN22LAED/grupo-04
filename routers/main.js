@@ -17,8 +17,8 @@ const uploadFile = multer({ storage: storage });
 
 
 router.get('/', controlador.home);
-router.get('/login', controlador.login);
-router.get('/register', controlador.register);
+// router.get('/login', controlador.login);
+// router.get('/register', controlador.register);
 
 /*** GET ALL CARDS ***/ 
 router.get('/market', controlador.market);

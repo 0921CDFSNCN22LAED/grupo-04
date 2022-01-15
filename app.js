@@ -1,7 +1,8 @@
 const path = require('path');
 const methodOverride =  require('method-override'); // Para poder usar los métodos PUT y DELETE
 const express = require('express');
-const mainRoute = require('./routers/main');
+const mainRoutes = require('./routers/main');
+const userRoutes = require('./routers/userRoutes');
 
 const app = express();
 
@@ -15,10 +16,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log('Servidor funcionando');
+  console.log('Servidor funcionando en puerto 3000');
 });
 
-app.use('/', mainRoute);
+// ************* Routes ************
+app.use('/', mainRoutes);
+app.use('/user', userRoutes);
 
 app.use((req, res, next) => {
   res.status(404).render("not-found");
