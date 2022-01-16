@@ -39,5 +39,18 @@ module.exports = {
     listUsers.push(user);
     saveUsers();
    },
+
+   createAdmin(body, file){
+    const user = {
+      id: Date.now(), //timestamp
+      role: "admin",
+      image: '/images/avatars/' + file.filename,
+      ...body,
+    };
+
+    listUsers.push(user);
+    saveUsers();
+   },
+
 }
 

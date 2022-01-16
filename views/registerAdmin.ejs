@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/Head") %>
+  </head>
+  <body class="bg_secondary">
+    <!-- inicio barra de navegacion -->
+    <header><%- include("./partials/NavBar") %></header>
+    <!-- fin barra de navegacion -->
+
+    <main class="container body-container">
+      <section>
+        <form action="/user/admin" method="POST" enctype="multipart/form-data">
+        <button class="design-btn"><img src="/images/google-logo.svg" alt="Google logo" />login with Google</button>
+        <button class="design-btn"><img src="/images/facebook.svg" alt="Facebook logo" />login with Facebook</button>
+        <section class="mt-3">
+          <div>
+            <label for="name" class="form-label"></label>
+            <input type="text" placeholder="nombre" value="<%= locals.oldData ? oldData.name : null%>" class="design-input" id="name" name="name"/>
+            <% if (locals.errors && errors.name){ %> 
+            <div class="text-danger">
+              <p><%= errors.name.msg %></p>
+            </div>
+            <% } %> 
+          </div>
+          <div>
+            <label for="userName" class="form-label"></label>
+            <input type="text" placeholder="choose username" value="<%= locals.oldData ? oldData.userName : null%>" class="design-input" id='userName' name="userName"/>
+            <% if (locals.errors && errors.userName){ %> 
+              <div class="text-danger">
+                <p><%= errors.userName.msg %></p>
+              </div>
+              <% } %> 
+          </div>
+          <div>
+            <label for="email" class="form-label"></label>
+            <input type="text" placeholder="email" value="<%= locals.oldData ? oldData.email : null%>" class="design-input" id='email' name="email"/>
+            <% if (locals.errors && errors.email){ %> 
+              <div class="text-danger">
+                <p><%= errors.email.msg %></p>
+              </div>
+              <% } %> 
+          </div>
+          <div>
+            <label for="password" class="form-label"></label>
+            <input type="text" placeholder="password" class="design-input" id="password" name="password"/>
+            <% if (locals.errors && errors.password){ %> 
+              <div class="text-danger">
+                <p><%= errors.password.msg %></p>
+              </div>
+              <% } %> 
+          </div>
+          <div>
+            <label for="rpassword" class="form-label"></label>
+            <input type="text" placeholder="repeat password" class="design-input" id="rpassword" name="passwordCheck"/>
+            <% if (locals.errors && errors.passwordCheck){ %> 
+              <div class="text-danger">
+                <p><%= errors.passwordCheck.msg %></p>
+              </div>
+              <% } %> 
+          </div>
+          <div class="flex-column mt-2">
+            <label for="avatar">Sube tu avatar</label>
+            <input type="file" class="design-input" placeholder="avatar" id="inputFile" accept="image/*" multiple name="avatar">
+            <% if (locals.errors && errors.avatar){ %> 
+              <div class="text-danger">
+                <p><%= errors.avatar.msg %></p>
+              </div>
+              <% } %> 
+          </div>
+        </section>
+        <button type="submit" class="design-btn mt-3">REGISTER</button>
+      </form>
+      </section>
+    </main>
+
+    <!-- inicio footer -->
+
+    <%- include("./partials/Footer") %>
+
+    <!-- fin footer -->
+
+    <!-- Scripts -->
+    <%- include("./partials/Scripts") %>
+  </body>
+</html>

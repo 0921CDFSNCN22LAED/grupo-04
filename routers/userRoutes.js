@@ -21,5 +21,9 @@ router.get('/register', controlador.register);
 // Procesa el Registro
 router.post('/register', uploadFile.single('avatar'), userValidations, controlador.processRegister);
 
+// Form admin // crear Middleware
+router.get('/admin', controlador.registerAdmin);
+// Procesa el form del Admin
+router.post('/admin', uploadFile.single('avatar'), userValidations, controlador.processRegisterAdmin);
 
 module.exports = router;
