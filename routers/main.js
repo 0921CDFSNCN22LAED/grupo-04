@@ -1,24 +1,15 @@
-const path = require('path');
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
+
+
+// Controller
 const controlador = require('../controllers/mainController.js');
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, '../public/images/calamardos-nft'));
-  },
-  filename: (req, file, cb) => {
-    cb(null, `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`);
-  }
-})
+// middlewares
+const uploadFile = require('../middlewares/multerMiddlewareCard');
 
-const uploadFile = multer({ storage: storage });
-
-
+/*** Home ***/ 
 router.get('/', controlador.home);
-// router.get('/login', controlador.login);
-// router.get('/register', controlador.register);
 
 /*** GET ALL CARDS ***/ 
 router.get('/market', controlador.market);

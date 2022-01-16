@@ -8,7 +8,7 @@ const controlador = require('../controllers/userController.js');
 
 // middlewares
 const userValidations = require('../middlewares/userValidations');
-const uploadFile = require('../middlewares/multerMiddleware');
+const uploadFile = require('../middlewares/multerMiddlewareUser');
 
 
 // Vista Formulario Login
