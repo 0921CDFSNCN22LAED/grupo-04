@@ -8,7 +8,8 @@ module.exports = [
     .isEmail().withMessage('Debes ingresar un email valido'),
   body('password').notEmpty().withMessage('Debes ingresar una contraseña').bail()
     .isLength({ min: 5 }).withMessage('La contraseña debe tener al menos 5 caracteres'),
-  body('passwordCheck').notEmpty().withMessage('Debes repetir la contraseña'),
+  body('passwordCheck').notEmpty().withMessage('Debes repetir la contraseña').bail()
+    .equals('password').withMessage('Las contraseñas deben coincidir'),
   body('avatar').custom((value, { req }) => {
     let file = req.file;
     if(!file){
