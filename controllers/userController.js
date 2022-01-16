@@ -1,4 +1,5 @@
 const { validationResult } = require('express-validator');
+const usersModel = require('../services/user-model');
 
 const controllador = {
   login: (req, res) => {
@@ -26,7 +27,9 @@ const controllador = {
         oldData: req.body
       })
     }
-    return res.send('Pasaron las validaciones!')
+    usersModel.createOne(req.body, req.file)
+      return res.redirect('/market');
+    
   }
 
 }

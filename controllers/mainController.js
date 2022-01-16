@@ -1,4 +1,3 @@
-const { deleteOne } = require('../services/card-model');
 const cardsModel = require('../services/card-model');
 
 
@@ -57,7 +56,7 @@ const controlador = {
 
   destroy: (req, res) => {
     const id = req.params.id;
-    deleteOne(id);
+    cardsModel.deleteOne(id);
 
     res.redirect('/admin-edit');
   }

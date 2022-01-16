@@ -34,10 +34,10 @@
           </div>
           <div>
             <label for="email" class="form-label"></label>
-            <input type="text" placeholder="email" value="<%= locals.oldData ? oldData.mail : null%>" class="design-input" id='email' name="mail"/>
-            <% if (locals.errors && errors.mail){ %> 
+            <input type="text" placeholder="email" value="<%= locals.oldData ? oldData.email : null%>" class="design-input" id='email' name="email"/>
+            <% if (locals.errors && errors.email){ %> 
               <div class="text-danger">
-                <p><%= errors.mail.msg %></p>
+                <p><%= errors.email.msg %></p>
               </div>
               <% } %> 
           </div>
