@@ -48,9 +48,23 @@ const controllador = {
     }
     usersModel.createAdmin(req.body, req.file)
       return res.redirect('/admin-edit');    
-  }
+  },
 
-}
+  listUsers: (req, res) => {
+    res.render('listUsers', {
+      pageTitle: 'Users Admin - ',
+      listUsers: usersModel.getAll(),
+    });
+  },
+
+  destroyUser: (req, res) => {
+    const id = req.params.id;
+    usersModel.deleteOne(id);
+
+    res.redirect('/user/edit');
+  },
+
+};
 
 
 module.exports = controllador;

@@ -34,23 +34,5 @@
     "category": "otro",
     "desc": "This is a wider card with supporting text below as a natural lead-in to additional contentt.",
     "price": "3"
-  },
-  {
-    "id": "5",
-    "name": "Sailor Moon2",
-    "desc": "Some quick example text to build on the card title and make up the bulk of the card's content.",
-    "date": "2021-12-04",
-    "price": "0.6",
-    "category": "anime",
-    "image": "/images/calamardos-nft/sailor_moon1.jpg"
-  },
-  {
-    "id": "6",
-    "name": "Sasuke2",
-    "desc": "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    "date": "2021-12-04",
-    "price": "0.3",
-    "category": "anime",
-    "image": "/images/calamardos-nft/sasukeFinal.jpg"
   }
 ]

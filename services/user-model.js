@@ -52,5 +52,12 @@ module.exports = {
     saveUsers();
    },
 
+   deleteOne(id){
+    const index = listUsers.findIndex(user => user.id == id);
+    listUsers.splice(index, 1);
+  
+    saveUsers();
+   }
+
 }
 

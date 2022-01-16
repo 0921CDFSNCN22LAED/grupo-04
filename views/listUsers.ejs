@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/Head") %>
+  </head>
+  <body class="bg_secondary">
+    <!-- inicio barra de navegacion -->
+    <header><%- include("./partials/NavBar") %></header>
+    <!-- fin barra de navegacion -->
+
+<main class="container body-container">    
+  <h1>Lista de Usuarios</h1>
+
+  <% for(let user of listUsers){ %>
+    <p class="mt-3"><%= user.name %> </p>
+    <p> <%= user.email %> </p>
+  
+  <form action="/user/edit<%= user.id %>?_method=DELETE" method="POST">               
+    <button type="submit" class="btn btn-outline-success btn-sm">
+    Borrar
+    </button>
+  </form>
+  <hr>   
+
+  <% } %> 
+
+
+  <section>
+    <a href="/admin-create"><button class="design-btn">Cargar nuevo Producto</button></a>
+  <section>
+
+    <section>
+      <a href="/admin-edit"><button class="design-btn">Ir a Edición</button></a>
+    <section>    
+
+
+</main>  
+
+
+  <!-- inicio footer -->
+
+  <%- include("./partials/Footer") %>
+
+  <!-- fin footer -->
+
+  <!-- Scripts -->
+  <%- include("./partials/Scripts") %>
+  </body>
+</html>
