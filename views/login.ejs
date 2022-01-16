@@ -10,17 +10,21 @@
 
     <main class="container vh-100 body-container">
       <section>
+        <form action="/user/login" method="POST" enctype="multipart/form-data">
         <button class="design-btn"><img src="/images/google-logo.svg" alt="Google logo" />login with Google</button>
         <button class="design-btn"><img src="/images/facebook.svg" alt="Facebook logo" />login with Facebook</button>
         <section>
           <div>
-            <input type="text" placeholder="email or username" class="design-input" />
+            <label for="email" class="form-label"></label>
+            <input type="text" placeholder="email" class="design-input" id='email' name="mail"/>
           </div>
           <div>
-            <input type="text" placeholder="password" class="design-input" />
+            <label for="password" class="form-label"></label>
+            <input type="text" placeholder="password" class="design-input" id="password" name="password"/>
           </div>
         </section>
-        <button class="design-btn">LOGIN</button>
+        <button type="submit" class="design-btn mt-3">LOGIN</button>
+      </form>
       </section>
     </main>
 

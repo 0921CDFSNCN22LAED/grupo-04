@@ -7,6 +7,10 @@ const controllador = {
     });
   },
 
+  processLogin: (req, res) => {
+    // completar
+  },
+
   register: (req, res) => {
     res.render('register', {
       pageTitle: 'Register - ',

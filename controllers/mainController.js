@@ -9,18 +9,6 @@ const controlador = {
     });
   },
 
-  // login: (req, res) => {
-  //   res.render('login', {
-  //     pageTitle: 'Login - ',
-  //   });
-  // },
-
-  // register: (req, res) => {
-  //   res.render('register', {
-  //     pageTitle: 'Register - ',
-  //   });
-  // },
-
   market: (req, res) => {
     res.render('market',{
       pageTitle: 'Marketplace - ',
