@@ -53,18 +53,10 @@ const controllador = {
 
   processRegister: (req, res) => {
     const resultValidations = validationResult(req);
-    
-    if(resultValidations.errors.length > 0){
-      res.render('register', {
-        errors: resultValidations.mapped(),
-        oldData: req.body
-      });
-    }
-
     let userInDB = usersModel.findByField('email', req.body.email);
-  
+
     if(userInDB){
-      res.render('register', {
+      return res.render('register', {
         errors: {
           email: {
             msg: 'Este email ya esta registrado'
@@ -72,10 +64,19 @@ const controllador = {
         },
         oldData: req.body
       })
+    }    
+    
+    if(resultValidations.errors.length > 0){
+      return res.render('register', {
+        errors: resultValidations.mapped(),
+        oldData: req.body
+      });
     }
 
+    if(!userInDB && resultValidations.errors.length <= 0){
     usersModel.createOne(req.body, req.file)
-    return res.redirect('/market');    
+    return res.redirect('/market');
+    }    
   },
 
   profile: (req, res) => {
@@ -99,15 +100,30 @@ const controllador = {
 
   processRegisterAdmin: (req, res) => {
     const resultValidations = validationResult(req);
+    let userInDB = usersModel.findByField('email', req.body.email);
+
+    if(userInDB){
+      res.render('register', {
+        errors: {
+          email: {
+            msg: 'Este email ya esta registrado'
+          }
+        },
+        oldData: req.body
+      })
+    }
     
     if(resultValidations.errors.length > 0){
       res.render('registerAdmin', {
         errors: resultValidations.mapped(),
         oldData: req.body
-      })
-    }
+      });
+    }      
+    
+    if(!userInDB && resultValidations.errors.length <= 0){
     usersModel.createAdmin(req.body, req.file)
-      return res.redirect('/admin-edit');    
+      return res.redirect('/admin-edit');
+    }    
   },
 
   listUsers: (req, res) => {
