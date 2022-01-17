@@ -4,6 +4,7 @@ const methodOverride =  require('method-override'); // Para poder usar los méto
 const session = require('express-session');
 const mainRoutes = require('./routers/main');
 const userRoutes = require('./routers/userRoutes');
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
 }));
+app.use(userLoggedMiddleware); // va despues de la sesion
 
 // ************ Template Engine ************
 app.use(express.static(path.join(__dirname, 'public')));

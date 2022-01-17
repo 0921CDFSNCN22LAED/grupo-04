@@ -127,15 +127,23 @@
             </li>
             <!--fin modal Carrito-->
 
+            <% if(locals.isLogged){ %>
+            <li class="nav-item">
+              <a class="nav-link d-lg-flex flex-lg-column mt-1" href="/user/profile">
+                <img src="<%= locals.userLogged.avatar %>" width="40" style="border-radius: 100%;" class="icon-nav icon-simple" alt=""/>
+                <%= locals.userLogged.name %></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-lg-flex flex-lg-column mt-1" href="/user/logout"><img src="/images/sign-out.svg" class="icon-nav icon-simple" alt=""/>Logout</a>
+            </li>
+            <% }else{ %> 
             <li class="nav-item">
               <a class="nav-link d-lg-flex flex-lg-column mt-1" href="/user/login"><img src="/images/door-open.svg" class="icon-nav icon-simple" alt=""/>Login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link d-lg-flex flex-lg-column mt-1" href="/user/register"><img src="/images/address-card.svg" class="icon-nav icon-simple" alt=""/>Register</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link d-lg-flex flex-lg-column mt-1" href="/user/logout"><img src="/images/sign-out.svg" class="icon-nav icon-simple" alt=""/>Logout</a>
-            </li>
+            <% } %> 
           </ul>
           <form class="d-flex mx-3 d-none" id="search-bar">
             <input class="form-control me-2 design-input bar-search" type="search" placeholder="Search" aria-label="Search">
