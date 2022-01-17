@@ -30,9 +30,7 @@ module.exports = {
   },
 
   findByEmail(email){
-    const user = listUsers.find(user =>
-      user.email === email
-    );
+    const user = listUsers.find(user => user.email === email);
     return user;
   },
 

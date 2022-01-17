@@ -43,7 +43,7 @@
           </div>
           <div>
             <label for="password" class="form-label"></label>
-            <input type="text" placeholder="password" class="design-input" id="password" name="password"/>
+            <input type="password" placeholder="password" class="design-input" id="password" name="password"/>
             <% if (locals.errors && errors.password){ %> 
               <div class="text-danger">
                 <p><%= errors.password.msg %></p>
@@ -52,7 +52,7 @@
           </div>
           <div>
             <label for="rpassword" class="form-label"></label>
-            <input type="text" placeholder="repeat password" class="design-input" id="rpassword" name="passwordCheck"/>
+            <input type="password" placeholder="repeat password" class="design-input" id="rpassword" name="passwordCheck"/>
             <% if (locals.errors && errors.passwordCheck){ %> 
               <div class="text-danger">
                 <p><%= errors.passwordCheck.msg %></p>

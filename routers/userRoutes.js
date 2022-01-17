@@ -31,4 +31,8 @@ router.get('/edit', controlador.listUsers);
 // Procesa Borrado de usuarios
 router.delete('/:id', controlador.destroyUser);
 
+// Vista Profile
+router.get('/profile', controlador.profile);
+
+
 module.exports = router;

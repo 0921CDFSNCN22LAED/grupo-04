@@ -54,14 +54,13 @@
     "role": "user"
   },
   {
-    "id": 1642373116218,
+    "id": 1642388710143,
     "name": "oki",
     "userName": "oytooki",
     "email": "ayealvo@gmail.com",
-    "password": "$2a$10$oU3qU4zkquIoyF/BF5atgOMUfrtM6M7Pkiw6K2mbx/b8ONWXyZVfG",
-    "passwordCheck": "100000",
+    "password": "$2a$10$eP0NuMV1Ol9mg86G3O/nueWN9S7k3/XySq8uRUW5bk/F3vRWAopCy",
+    "passwordCheck": "$2a$10$qCldSPtvuRK8jdiUN/e0p..ZzxaUlq/nK1CgZr/Phw.xFkzprLLrm",
     "role": "user",
-    "image": "/images/avatars/avatar-1642373116196.jpg",
-    "passwordHash": "$2a$10$keIU31IIiUOmLOI74N4IJ.hVDUudyro9fXCovT43fNJakF2YwbBo."
+    "image": "/images/avatars/avatar-1642388710124.jpg"
   }
 ]

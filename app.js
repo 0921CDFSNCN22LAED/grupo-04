@@ -1,6 +1,7 @@
 const path = require('path');
-const methodOverride =  require('method-override'); // Para poder usar los métodos PUT y DELETE
 const express = require('express');
+const methodOverride =  require('method-override'); // Para poder usar los métodos PUT y DELETE
+const session = require('express-session');
 const mainRoutes = require('./routers/main');
 const userRoutes = require('./routers/userRoutes');
 
@@ -10,6 +11,11 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(session({
+  secret: 'secret page message',
+  resave: false,
+  saveUninitialized: true,
+}));
 
 // ************ Template Engine ************
 app.use(express.static(path.join(__dirname, 'public')));

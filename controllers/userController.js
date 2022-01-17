@@ -11,26 +11,36 @@ const controllador = {
   },
 
   processLogin: (req, res) => {
-    let userToLogin = usersModel.findByEmail(req.body.email); // no funciona
-    // let userToLogin = usersModel.findByField('email', req.body.email); // no funciona
-    return console.log(userToLogin); 
+    let userToLogin = usersModel.findByField('email', req.body.email);
+    
+    if(userToLogin){
+      let confirmPassword = bcrypt.compareSync(req.body.password, userToLogin.password)    
+      if(confirmPassword){
+        delete userToLogin.password;
+        req.session.userLogged = userToLogin;
+        return res.redirect('/user/profile');
+      }
 
-    // if(userToLogin){
-    //   let confirmPassword = bcrypt.compareSync(req.body.password, userToLogin.password)
-    //   if(confirmPassword){
-    //     return res.send('Puedes ingresar')
-    //   }
-    // }
+      return res.render('login', {
+        pageTitle: 'Login - ',
+        errors: {
+          email: {
+            msg: 'Las credenciales son invalidas'
+          }
+        },
+        
+      });
+    }
 
-    // return res.render('login', {
-    //   pageTitle: 'Login - ',
-		// 	errors: {
-		// 		email: {
-		// 			msg: 'No se encuentra este email en nuestra base de datos'
-		// 		}
-		// 	},
+    return res.render('login', {
+      pageTitle: 'Login - ',
+			errors: {
+				email: {
+					msg: 'No se encuentra registrado en nuestro Calamarket'
+				}
+			},
       
-		// });
+		});
   },
 
   register: (req, res) => {
@@ -50,7 +60,7 @@ const controllador = {
     }
 
     let userInDB = usersModel.findByField('email', req.body.email);
-
+  
     if(userInDB){
       res.render('register', {
         errors: {
@@ -64,6 +74,13 @@ const controllador = {
 
     usersModel.createOne(req.body, req.file)
     return res.redirect('/market');    
+  },
+
+  profile: (req, res) => {
+    res.render('userProfile', {
+      pageTitle: 'Profile - ',
+      user: req.session.userLogged,
+    })
   },
 
   registerAdmin: (req, res) => {
