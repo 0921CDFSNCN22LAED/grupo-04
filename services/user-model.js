@@ -39,7 +39,7 @@ module.exports = {
       id: Date.now(),
       ...body, //timestamp
       role: "user",
-      image: '/images/avatars/' + file.filename,
+      avatar: '/images/avatars/' + file.filename,
       password: bcrypt.hashSync(body.password, 10),
       passwordCheck: bcrypt.hashSync(body.passwordCheck, 10),
     }

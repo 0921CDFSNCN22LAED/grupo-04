@@ -83,6 +83,11 @@ const controllador = {
     })
   },
 
+  logout: (req, res) => {
+    req.session.destroy();
+    return res.redirect('/');
+  },
+
   registerAdmin: (req, res) => {
     res.render('registerAdmin', {
       pageTitle: 'Register Admin - ',
