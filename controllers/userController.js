@@ -16,19 +16,22 @@ const controllador = {
     if(userToLogin){
       let confirmPassword = bcrypt.compareSync(req.body.password, userToLogin.password)    
       if(confirmPassword){
-        delete userToLogin.password;
+        // delete userToLogin.password;
         req.session.userLogged = userToLogin;
+
+        if(req.body.rememberUser){
+          res.cookie('rememberMe', req.body.email, { maxAge: (100 * 60) * 60})
+        }
+
         return res.redirect('/user/profile');
       }
-
       return res.render('login', {
         pageTitle: 'Login - ',
         errors: {
           email: {
             msg: 'Las credenciales son invalidas'
           }
-        },
-        
+        },        
       });
     }
 
@@ -38,8 +41,7 @@ const controllador = {
 				email: {
 					msg: 'No se encuentra registrado en nuestro Calamarket'
 				}
-			},
-      
+			},      
 		});
   },
 
@@ -84,6 +86,7 @@ const controllador = {
   },
 
   logout: (req, res) => {
+    res.clearCookie('rememberMe');
     req.session.destroy();
     return res.redirect('/');
   },

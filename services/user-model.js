@@ -55,7 +55,7 @@ module.exports = {
       role: "admin",
       image: '/images/avatars/' + file.filename,
       password: bcrypt.hashSync(body.password, 10),
-      // passwordCheck: bcrypt.hashSync(body.passwordCheck, 10),
+      passwordCheck: bcrypt.hashSync(body.passwordCheck, 10),
     };
 
     listUsers.push(user);
