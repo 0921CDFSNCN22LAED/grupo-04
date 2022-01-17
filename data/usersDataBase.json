@@ -30,7 +30,7 @@
     "id": "4",
     "name": "Ayelen",
     "userName": "Aye",
-    "email": "tomi@calamarket.com",
+    "email": "aye@calamarket.com",
     "password": "5555",
     "avatar": "null",
     "role": "admin"
@@ -52,5 +52,16 @@
     "password": "1234",
     "avatar": "null",
     "role": "user"
+  },
+  {
+    "id": 1642373116218,
+    "name": "oki",
+    "userName": "oytooki",
+    "email": "ayealvo@gmail.com",
+    "password": "$2a$10$oU3qU4zkquIoyF/BF5atgOMUfrtM6M7Pkiw6K2mbx/b8ONWXyZVfG",
+    "passwordCheck": "100000",
+    "role": "user",
+    "image": "/images/avatars/avatar-1642373116196.jpg",
+    "passwordHash": "$2a$10$keIU31IIiUOmLOI74N4IJ.hVDUudyro9fXCovT43fNJakF2YwbBo."
   }
 ]

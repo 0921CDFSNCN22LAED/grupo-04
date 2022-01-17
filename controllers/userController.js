@@ -1,5 +1,7 @@
 const { validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs');
 const usersModel = require('../services/user-model');
+
 
 const controllador = {
   login: (req, res) => {
@@ -9,7 +11,26 @@ const controllador = {
   },
 
   processLogin: (req, res) => {
-    // completar
+    let userToLogin = usersModel.findByEmail(req.body.email); // no funciona
+    // let userToLogin = usersModel.findByField('email', req.body.email); // no funciona
+    return console.log(userToLogin); 
+
+    // if(userToLogin){
+    //   let confirmPassword = bcrypt.compareSync(req.body.password, userToLogin.password)
+    //   if(confirmPassword){
+    //     return res.send('Puedes ingresar')
+    //   }
+    // }
+
+    // return res.render('login', {
+    //   pageTitle: 'Login - ',
+		// 	errors: {
+		// 		email: {
+		// 			msg: 'No se encuentra este email en nuestra base de datos'
+		// 		}
+		// 	},
+      
+		// });
   },
 
   register: (req, res) => {
@@ -25,10 +46,24 @@ const controllador = {
       res.render('register', {
         errors: resultValidations.mapped(),
         oldData: req.body
+      });
+    }
+
+    let userInDB = usersModel.findByField('email', req.body.email);
+
+    if(userInDB){
+      res.render('register', {
+        errors: {
+          email: {
+            msg: 'Este email ya esta registrado'
+          }
+        },
+        oldData: req.body
       })
     }
+
     usersModel.createOne(req.body, req.file)
-      return res.redirect('/market');    
+    return res.redirect('/market');    
   },
 
   registerAdmin: (req, res) => {

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const bcrypt = require('bcryptjs');
 
 const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
 const listUsers = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -28,13 +29,22 @@ module.exports = {
     return user;
   },
 
+  findByEmail(email){
+    const user = listUsers.find(user =>
+      user.email === email
+    );
+    return user;
+  },
+
   createOne(body, file){
     const user = {
-      id: Date.now(), //timestamp
+      id: Date.now(),
+      ...body, //timestamp
       role: "user",
       image: '/images/avatars/' + file.filename,
-      ...body,
-    };
+      password: bcrypt.hashSync(body.password, 10),
+      passwordCheck: bcrypt.hashSync(body.passwordCheck, 10),
+    }
 
     listUsers.push(user);
     saveUsers();
@@ -43,9 +53,11 @@ module.exports = {
    createAdmin(body, file){
     const user = {
       id: Date.now(), //timestamp
+      ...body,
       role: "admin",
       image: '/images/avatars/' + file.filename,
-      ...body,
+      password: bcrypt.hashSync(body.password, 10),
+      // passwordCheck: bcrypt.hashSync(body.passwordCheck, 10),
     };
 
     listUsers.push(user);

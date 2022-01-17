@@ -17,6 +17,11 @@
           <div>
             <label for="email" class="form-label"></label>
             <input type="text" placeholder="email" class="design-input" id='email' name="mail"/>
+            <% if(locals.errors && errors.email ){ %> 
+              <div class="text-danger">
+                <p><%= errors.email.msg %></p>
+              </div>
+            <% } %>   
           </div>
           <div>
             <label for="password" class="form-label"></label>
