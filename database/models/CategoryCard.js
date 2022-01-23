@@ -16,5 +16,13 @@ module.exports = (sequelize, dataTypes) => {
   }
   );
 
+  // Associations
+  CategoryCard.associate = function(models){
+    CategoryCard.belongsTo(models.Cards, {
+      as: 'categories',
+      foreignKey: 'id'
+    });
+  }
+
   return CategoryCard;
 }

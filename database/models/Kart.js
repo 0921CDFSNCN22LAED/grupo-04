@@ -25,5 +25,21 @@ module.exports = (sequelize, dataTypes) => {
   }
   );
 
+  // Associations
+  Kart.associate = function(models){
+    Kart.belongsTo(models.Users, {
+      as: 'kart',
+      foreignKey: 'id'
+    });
+
+    Kart.belongsToMany(models.Cards, {
+      as: 'products',
+      trough: 'product_kart',
+      foreignKey: 'card_id',
+      otherKey: 'kart_id',
+      timestamps: false    // va false ?? 
+    });
+  }
+
   return Kart;
 }

@@ -31,5 +31,13 @@ module.exports = (sequelize, dataTypes) => {
   }
   );
 
+  // Associations
+  User.associate = function(models){
+    User.hasMany(models.Karts, {
+      as: 'kart',
+      foreignKey: 'usuario_id'
+    });
+  }
+
   return User;
 }

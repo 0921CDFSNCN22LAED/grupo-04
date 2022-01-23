@@ -27,8 +27,25 @@ module.exports = (sequelize, dataTypes) => {
   },
   {
     tableName: 'Cards',
+    timestamps: false
   }
   );
+
+  // Associations
+  Card.associate = function(models){
+    Card.hasMany(models.CategoryCards, {
+      as: 'categories',
+      foreignKey: 'id'
+    });
+
+    Card.belongsToMany(models.Karts, {
+      as: 'products',
+      trough: 'product_kart',
+      foreignKey: 'kart_id',
+      otherKey: 'card_id',
+      timestamps: false    
+    });
+  }
 
   return Card;
 }

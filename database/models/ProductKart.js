@@ -19,5 +19,18 @@ module.exports = (sequelize, dataTypes) => {
   }
   );
 
+  // tabla intermedia con asociaciones tambien??
+  ProductKart.associate = function(models){
+    ProductKart.hasMany(models.Karts, {
+      as: 'karts',
+      foreignKey: 'products_id'
+    });
+
+    ProductKart.hasMany(models.Cards, {
+      as: 'cards',
+      foreignKey: 'id'
+    });
+  }
+
   return ProductKart;
 }
