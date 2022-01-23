@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-01-2022 a las 03:00:26
+-- Tiempo de generación: 23-01-2022 a las 04:42:34
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -30,11 +30,11 @@ SET time_zone = "+00:00";
 CREATE TABLE `cards` (
   `id` int(6) NOT NULL,
   `name` varchar(20) NOT NULL,
-  `description` varchar(60) NOT NULL,
+  `description` text NOT NULL,
   `rating` int(3) NOT NULL,
   `image` varchar(60) NOT NULL,
   `create_data` datetime NOT NULL DEFAULT current_timestamp(),
-  `price` int(11) NOT NULL,
+  `price` decimal(5,4) NOT NULL,
   `category_id` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -58,8 +58,8 @@ CREATE TABLE `category_card` (
 CREATE TABLE `karts` (
   `id` int(6) NOT NULL,
   `items` int(30) NOT NULL,
-  `total` int(50) NOT NULL,
-  `products_id` varchar(50) NOT NULL,
+  `total` decimal(5,4) NOT NULL,
+  `products_id` int(6) NOT NULL,
   `usuario_id` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -113,7 +113,8 @@ ALTER TABLE `category_card`
 --
 ALTER TABLE `karts`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `uduario_id` (`usuario_id`);
+  ADD KEY `uduario_id` (`usuario_id`),
+  ADD KEY `products` (`products_id`);
 
 --
 -- Indices de la tabla `product_kart`
@@ -178,6 +179,7 @@ ALTER TABLE `cards`
 -- Filtros para la tabla `karts`
 --
 ALTER TABLE `karts`
+  ADD CONSTRAINT `products` FOREIGN KEY (`products_id`) REFERENCES `product_kart` (`id`),
   ADD CONSTRAINT `user_kart` FOREIGN KEY (`usuario_id`) REFERENCES `users` (`id`);
 
 --
