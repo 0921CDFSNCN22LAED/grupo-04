@@ -1,54 +1,65 @@
-const fs = require('fs');
-const path = require('path');
+const db = require('../database/models');
 
-const cardsFilePath = path.join(__dirname, '../data/cardsDataBase.json');
-const listCards = JSON.parse(fs.readFileSync(cardsFilePath, 'utf-8'));
+const listCards = require('../database/models/Card');
 
-function saveCards(){
-	const texto = JSON.stringify(listCards, null, 2);
-	fs.writeFileSync(cardsFilePath, texto, "utf-8");
-}
+// const fs = require('fs');
+// const path = require('path');
+
+// const cardsFilePath = path.join(__dirname, '../data/cardsDataBase.json');
+// const listCards = JSON.parse(fs.readFileSync(cardsFilePath, 'utf-8'));
+
+// function saveCards(){
+// 	const texto = JSON.stringify(listCards, null, 2);
+// 	fs.writeFileSync(cardsFilePath, texto, "utf-8");
+// }
 
 module.exports = {
-  listCards,
-  saveCards,
-
-  getAll(){
-    return listCards;
+  listCards(){
+    return db.Cards.findAll();
   },
 
-  findOne(id){
-    const card = listCards.find(card => card.id == id);
-    return card;
-  },
 
-  updateOne(card, dato, file){
-    card.name = dato.name;
-    card.price = dato.price;
-    card.date = dato.date;
-    card.category = dato.category;
-    card.desc = dato.desc;
-    if(file){
-     card.image = '/images/calamardos-nft/' + file.filename;
-    }
-    saveCards();
-   },
+  // Services Data Json
 
-   createOne(body, file){
-    const card = {
-      id: Date.now(), //timestamp
-      image: '/images/calamardos-nft/' + file.filename,
-      ...body,
-    };
+  // listCards,
+  // saveCards,
 
-    listCards.push(card);
-    saveCards();
-   },
+  // getAll(){
+  //   return listCards;
+  // },
+
+  // findOne(id){
+  //   const card = listCards.find(card => card.id == id);
+  //   return card;
+  // },
+
+  // updateOne(card, dato, file){
+  //   card.name = dato.name;
+  //   card.price = dato.price;
+  //   card.date = dato.date;
+  //   card.category = dato.category;
+  //   card.desc = dato.desc;
+  //   if(file){
+  //    card.image = '/images/calamardos-nft/' + file.filename;
+  //   }
+  //   saveCards();
+  //  },
+
+  //  createOne(body, file){
+  //   const card = {
+  //     id: Date.now(), //timestamp
+  //     image: '/images/calamardos-nft/' + file.filename,
+  //     ...body,
+  //   };
+
+  //   listCards.push(card);
+  //   saveCards();
+  //  },
   
-   deleteOne(id){
-    const index = listCards.findIndex(card => card.id == id);
-    listCards.splice(index, 1);
+  //  deleteOne(id){
+  //   const index = listCards.findIndex(card => card.id == id);
+  //   listCards.splice(index, 1);
   
-    saveCards();
-   },
+  //   saveCards();
+  //  },
 }

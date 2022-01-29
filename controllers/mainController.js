@@ -1,3 +1,5 @@
+const db = ('../database/models');
+
 const cardsModel = require('../services/card-model');
 
 
@@ -9,10 +11,14 @@ const controlador = {
   },
 
   market: (req, res) => {
-    res.render('market',{
-      pageTitle: 'Marketplace - ',
-      listCards: cardsModel.getAll(),
-    });
+    cardsModel.listCards()
+    .then(cards => {
+        res.render('market',{
+        pageTitle: 'Marketplace - ',
+        listCards: cards
+      });
+    })
+    .catch(error => console.log(error))
   },
 
   edition: (req, res) => {

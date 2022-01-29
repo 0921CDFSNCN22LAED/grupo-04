@@ -40,9 +40,9 @@ module.exports = (sequelize, dataTypes) => {
 
     Card.belongsToMany(models.Karts, {
       as: 'products',
-      trough: 'product_kart',
-      foreignKey: 'kart_id',
-      otherKey: 'card_id',
+      through: 'product_kart',
+      foreignKey: 'card_id',
+      otherKey: 'kart_id',
       timestamps: false    
     });
   }
