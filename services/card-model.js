@@ -1,6 +1,5 @@
 const db = require('../database/models');
-
-const listCards = require('../database/models/Card');
+const { Card } = require('../database/models');
 
 // const fs = require('fs');
 // const path = require('path');
@@ -15,7 +14,30 @@ const listCards = require('../database/models/Card');
 
 module.exports = {
   listCards(){
-    return db.Cards.findAll();
+    return db.Cards.findAll({
+      include: [{association: 'categories'}]
+    });
+  },
+
+  categories(){
+    return db.CategoryCards.findAll();
+  },
+
+  createOne(body, file){
+      return db.Cards.create({
+      name: body.name,
+      description: body.desc,
+      rating: body.rating,
+      image: '/images/calamardos-nft/' + file.filename,
+      create_data: body.date,
+      price: body.price,
+      category_id: body.category
+      
+      // image: '/images/calamardos-nft/' + file.filename,
+      // ...body
+    })
+
+
   },
 
 

@@ -26,9 +26,9 @@
           <div class="dropend mt-2 d-flex justify-content-start">
           <button class="design-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">CATEGORIAS</button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Accion</a></li>
-            <li><a class="dropdown-item" href="#">Anime</a></li>
-            <li><a class="dropdown-item" href="#">Otra categoria</a></li>
+            <% for(let category of categories){ %>
+            <li><a class="dropdown-item" href="#"><%= category.name %></a></li>
+            <% } %>
           </ul>
           </div>
         </div>

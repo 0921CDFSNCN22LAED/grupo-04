@@ -11,21 +11,33 @@ const controlador = {
   },
 
   market: (req, res) => {
-    cardsModel.listCards()
-    .then(cards => {
+    let listCards = cardsModel.listCards();
+    let categories = cardsModel.categories();
+    Promise
+    .all([listCards, categories])
+    .then(([listCards, categories]) => {
         res.render('market',{
         pageTitle: 'Marketplace - ',
-        listCards: cards
+        listCards,
+        categories
       });
     })
     .catch(error => console.log(error))
   },
 
   edition: (req, res) => {
-    res.render('admin-cards', {
-      pageTitle: 'Admin - ',
-      listCards: cardsModel.getAll(),
-    });
+    let listCards = cardsModel.listCards();
+    let categories = cardsModel.categories();
+    Promise
+    .all([listCards, categories])
+    .then(([listCards, categories]) => {
+        res.render('admin-cards',{
+        pageTitle: 'Admin - ',
+        listCards,
+        categories
+      });
+    })
+    .catch(error => console.log(error))
   },
 
   edit: (req, res) => {
@@ -50,14 +62,21 @@ const controlador = {
   },
 
   create: (req, res) => {
-    res.render('admin-create-cards', {
-      pageTitle: 'Admin - ',
-    });
+    cardsModel.categories()
+    .then(categories => {
+      res.render('admin-create-cards', {
+        pageTitle: 'Admin - ',
+        categories
+      })
+    })
   },
 
   new: (req, res) => {
     cardsModel.createOne(req.body, req.file)
-    res.redirect('/admin-edit');
+    .then(()=>{
+      res.redirect('/admin-edit'); 
+    })
+    .catch(error => console.log(error));
   },
 
   destroy: (req, res) => {

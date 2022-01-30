@@ -23,10 +23,13 @@ module.exports = (sequelize, dataTypes) => {
     },
     price: {
       type: dataTypes.DECIMAL,
+    },
+    category_id: {
+      type: dataTypes.INTEGER,
     }
   },
   {
-    tableName: 'Cards',
+    tableName: 'cards',
     timestamps: false
   }
   );
