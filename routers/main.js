@@ -14,6 +14,9 @@ router.get('/', controlador.home);
 /*** GET ALL CARDS ***/ 
 router.get('/market', controlador.market);
 
+/*** POST SEARCH CARDS ***/ 
+router.post('/market', controlador.search);
+
 
 /*** ADMIN EDITION (hacer middleware) ***/ 
 router.get('/admin-edit', controlador.edition);

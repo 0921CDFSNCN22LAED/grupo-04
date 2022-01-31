@@ -1,4 +1,5 @@
 const db = require('../database/models');
+const Op = db.Sequelize.Op;
 
 // Services Data Json
 // const fs = require('fs');
@@ -58,6 +59,16 @@ module.exports = {
     return db.Cards.destroy({
       where: {
         id: id
+      }
+    })
+  },
+
+  search(name){
+    return db.Cards.findAll({
+      where: {
+        name: {
+          [Op.like]:'%'+ name +'%'
+        }
       }
     })
   }

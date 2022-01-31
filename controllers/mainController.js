@@ -91,6 +91,23 @@ const controlador = {
       res.redirect('/admin-edit');
     })
     .catch(error => console.log(error));
+  },
+
+  search: (req, res) => {
+    const categories = cardsModel.categories();
+    const name = req.body.search;
+    const find = cardsModel.search(name)
+    
+    Promise
+    .all([find, categories])
+    .then(([find, categories]) =>{
+      res.render('market', {
+        pageTitle: 'Marketplace - ',
+        listCards: find,
+        categories
+      })
+    })
+    .catch(error => console.log(error));
   }
 
 };
