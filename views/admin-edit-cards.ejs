@@ -22,29 +22,34 @@
         <span class="input-group-text design-input" id="basic-addon1">Imagen NFT:</span>
         <input type="file" class="form-control design-btn" placeholder="imagenNFT" id="inputFile" accept="image/*" multiple name="image">
       </div>
-      
       <div class="input-group mb-3">
         <label class="input-group-text design-input" for="inputGroupSelect01">Categoria</label>
         <select class="form-select design-btn" id="inputGroupSelect01" name="category">
           <option selected>Choose...</option>
-          <% if (card.category == "anime"){ %> 
-          <option value="anime" selected>Anime</option>
-          <% }else if (card.category == "accion"){ %>
-          <option value="accion" selected>Accion</option>
-          <% } else{ %> 
-          <option value="otro" selected>Otro</option>
+          <% for(let category of categories){ %>
+            <% if (card.category_id == category.id){ %> 
+              <option value="<%= category.id %>" selected><%= category.name %></option>
+            <% }else { %> 
+              <option value="<%= category.id %>"><%= category.name %></option>
+            <% } %>
           <% } %> 
         </select>
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text design-input" id="basic-addon3">Fecha de creacion</span>
-        <input type="date" class="form-control design-input" id="basic-url" aria-describedby="basic-addon3" name="date" value="<%= card.date %>">
+        <input type="date" class="form-control design-input" id="basic-url" aria-describedby="basic-addon3" name="date" value="<%= card.create_data %>">
       </div>
 
       <div class="input-group">
-        <span class="input-group-text design-input">descripcion</span>
+        <span class="input-group-text design-input">Descripcion</span>
         <textarea class="form-control design-input" aria-label="With textarea" name="desc" value=""><%= card.description %></textarea>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text design-input" id="basic-addon1"><i class="fas fa-award mx-1"></i></span>
+        <input type="number" class="form-control design-input" placeholder="rating" aria-describedby="basic-addon1" name="rating" value="<%= card.rating %>">
+        <span class="input-group-text design-input">Rating</span>
       </div>
 
       <div class="input-group mb-3">

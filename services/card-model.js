@@ -1,5 +1,4 @@
 const db = require('../database/models');
-const { Card } = require('../database/models');
 
 // const fs = require('fs');
 // const path = require('path');
@@ -31,13 +30,27 @@ module.exports = {
       image: '/images/calamardos-nft/' + file.filename,
       create_data: body.date,
       price: body.price,
-      category_id: body.category
-      
+      category_id: body.category      
       // image: '/images/calamardos-nft/' + file.filename,
       // ...body
     })
+  },
 
+  findOneByPk(id){
+    return db.Cards.findByPk(id)
+  },
 
+  updateOne(id, dato, file){
+    return db.Cards.findByPk(id).then( card => 
+      card.update({
+            name: dato.name,
+            description: dato.desc,
+            rating: dato.rating,
+            image: file ? '/images/calamardos-nft/' + file.filename : card.image,
+            create_data: dato.date,
+            price: dato.price,
+            category_id: dato.category      
+      }))
   },
 
 

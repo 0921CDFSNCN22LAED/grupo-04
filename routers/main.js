@@ -15,7 +15,7 @@ router.get('/', controlador.home);
 router.get('/market', controlador.market);
 
 
-/*** ADMIN EDITION ***/ 
+/*** ADMIN EDITION (hacer middleware) ***/ 
 router.get('/admin-edit', controlador.edition);
 /*** EDIT ONE CARD ***/ 
 router.get('/admin-edit/:id', controlador.edit);

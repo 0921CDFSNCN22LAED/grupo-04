@@ -1,5 +1,3 @@
-const db = ('../database/models');
-
 const cardsModel = require('../services/card-model');
 
 
@@ -26,8 +24,8 @@ const controlador = {
   },
 
   edition: (req, res) => {
-    let listCards = cardsModel.listCards();
-    let categories = cardsModel.categories();
+    const listCards = cardsModel.listCards();
+    const categories = cardsModel.categories();
     Promise
     .all([listCards, categories])
     .then(([listCards, categories]) => {
@@ -42,23 +40,31 @@ const controlador = {
 
   edit: (req, res) => {
     const id = req.params.id;
-    const card = cardsModel.findOne(id);
+    const categories = cardsModel.categories();
+    const findCard = cardsModel.findOneByPk(id)
+    Promise
+    .all([categories, findCard])
+    .then( ([categories, findCard]) => {
+      res.render('admin-edit-cards', {
+        pageTitle: 'Admin - ',
+        card: findCard,
+        categories
+      });
+    })
 
-    res.render('admin-edit-cards', {
-      pageTitle: 'Admin - ',
-      card: card,
-    });
   },
 
   update: (req, res) => {
     const id = req.params.id;
 		const dato = req.body;
-		const card = cardsModel.findOne(id);
     const file = req.file;
 
-		cardsModel.updateOne(card, dato, file);
+    cardsModel.updateOne(id, dato, file)
+    .then(() => {
+      res.redirect('/admin-edit');
+    })
+    .catch(error => console.log(error));
 
-		res.redirect('/admin-edit');
   },
 
   create: (req, res) => {
