@@ -64,7 +64,6 @@ const controlador = {
       res.redirect('/admin-edit');
     })
     .catch(error => console.log(error));
-
   },
 
   create: (req, res) => {
@@ -87,10 +86,13 @@ const controlador = {
 
   destroy: (req, res) => {
     const id = req.params.id;
-    cardsModel.deleteOne(id);
-
-    res.redirect('/admin-edit');
+    cardsModel.deleteOne(id)
+    .then(() => {
+      res.redirect('/admin-edit');
+    })
+    .catch(error => console.log(error));
   }
+
 };
 
 module.exports = controlador;

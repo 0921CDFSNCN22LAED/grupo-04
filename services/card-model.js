@@ -53,6 +53,14 @@ module.exports = {
       }))
   },
 
+  deleteOne(id){
+    return db.Cards.destroy({
+      where: {
+        id: id
+      }
+    })
+  }
+
 
   // Services Data Json
 
