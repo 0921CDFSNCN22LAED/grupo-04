@@ -15,7 +15,7 @@
     <p class="mt-3"><%= user.name %> </p>
     <p> <%= user.email %> </p>
   
-  <form action="/user/edit<%= user.id %>?_method=DELETE" method="POST">               
+  <form action="/user/<%= user.id %>?_method=DELETE" method="POST">               
     <button type="submit" class="btn btn-outline-success btn-sm">
     Borrar
     </button>

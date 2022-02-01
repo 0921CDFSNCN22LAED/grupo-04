@@ -144,9 +144,11 @@ const controllador = {
 
   destroyUser: (req, res) => {
     const id = req.params.id;
-    usersModel.deleteOne(id);
-
-    res.redirect('/user/edit');
+    usersModel.deleteOne(id)
+    .then(() => {
+      res.redirect('/user/edit');
+    })
+    .catch(error => console.log(error));
   },
 
 };

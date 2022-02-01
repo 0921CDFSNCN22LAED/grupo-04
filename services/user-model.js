@@ -3,16 +3,14 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 
 const db = require('../database/models');
-const e = require('express');
-const Op = db.Sequelize.Op;
 
 const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
 const listUsers = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
-function saveUsers(){
-	const texto = JSON.stringify(listUsers, null, 2);
-	fs.writeFileSync(usersFilePath, texto, "utf-8");
-}
+// function saveUsers(){
+// 	const texto = JSON.stringify(listUsers, null, 2);
+// 	fs.writeFileSync(usersFilePath, texto, "utf-8");
+// }
 
 module.exports = {
   listUsers(){
@@ -51,9 +49,13 @@ module.exports = {
     })
    },
 
-
-
-
+   deleteOne(id){
+    return db.Users.destroy({
+      where: {
+        id: id
+      }
+    })
+   },
 
 
 
@@ -63,12 +65,12 @@ module.exports = {
   // listUsers,
   // saveUsers,
 
-  getAll(){
-    return listUsers;
-  },
+  // getAll(){
+  //   return listUsers;
+  // },
 
-  findByPk(id){
-    const user = listUsers.find(user => user.id == id);
+  findByPk(id){ // arreglar
+    const user = listUsers().find(user => user.id == id);
     return user;
   },
 
@@ -107,12 +109,12 @@ module.exports = {
   //   saveUsers();
   //  },
 
-   deleteOne(id){
-    const index = listUsers.findIndex(user => user.id == id);
-    listUsers.splice(index, 1);
+  //  deleteOne(id){
+  //   const index = listUsers.findIndex(user => user.id == id);
+  //   listUsers.splice(index, 1);
   
-    saveUsers();
-   }
+  //   saveUsers();
+  //  }
  
 }
 
