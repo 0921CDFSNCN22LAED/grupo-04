@@ -34,3 +34,12 @@ Tengo 17 años, recien estoy aventurandome en la vida y me encuentro probando de
 
 #### Tablero de Trello:
 https://trello.com/b/NFyjPNNu/tareas
+
+
+## Usuarios Prueba
+
+### User: user@user.com
+### Password: 11111
+
+### User Admin: user@admin.com
+### Password: 11111
