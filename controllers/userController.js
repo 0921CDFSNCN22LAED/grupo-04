@@ -10,8 +10,8 @@ const controllador = {
     });
   },
 
-  processLogin: (req, res) => {
-    let userToLogin = usersModel.findByField('email', req.body.email);
+  processLogin: async (req, res) => {
+    let userToLogin = await usersModel.findByEmail(req.body.email);
     
     if(userToLogin){
       let confirmPassword = bcrypt.compareSync(req.body.password, userToLogin.password)    
