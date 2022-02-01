@@ -2,6 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
 
+const db = require('../database/models');
+const e = require('express');
+const Op = db.Sequelize.Op;
+
 const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
 const listUsers = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
@@ -11,8 +15,53 @@ function saveUsers(){
 }
 
 module.exports = {
-  listUsers,
-  saveUsers,
+  listUsers(){
+    return db.Users.findAll();
+  },
+
+  createOne(body, file){
+    return db.Users.create({
+      name: body.name,
+      user_name: body.userName,
+      email: body.email,
+      avatar: '/images/avatars/' + file.filename,
+      password: bcrypt.hashSync(body.password, 10),
+      passwordCheck: bcrypt.hashSync(body.passwordCheck, 10),
+      role: "user",
+    })
+   },  
+
+   findByEmail(email){
+    return db.Users.findOne({
+      where: {
+        email: email
+      }
+    })
+  },
+
+  createAdmin(body, file){
+    return db.Users.create({
+      name: body.name,
+      user_name: body.userName,
+      email: body.email,
+      avatar: '/images/avatars/' + file.filename,
+      password: bcrypt.hashSync(body.password, 10),
+      passwordCheck: bcrypt.hashSync(body.passwordCheck, 10),
+      role: "admin",
+    })
+   },
+
+
+
+
+
+
+
+
+  //Services Data Json
+  
+  // listUsers,
+  // saveUsers,
 
   getAll(){
     return listUsers;
@@ -29,38 +78,34 @@ module.exports = {
     return user;
   },
 
-  findByEmail(email){
-    const user = listUsers.find(user => user.email === email);
-    return user;
-  },
 
-  createOne(body, file){
-    const user = {
-      id: Date.now(),
-      ...body, //timestamp
-      role: "user",
-      avatar: '/images/avatars/' + file.filename,
-      password: bcrypt.hashSync(body.password, 10),
-      passwordCheck: bcrypt.hashSync(body.passwordCheck, 10),
-    }
+  // createOne(body, file){
+  //   const user = {
+  //     id: Date.now(),
+  //     ...body,
+  //     role: "user",
+  //     avatar: '/images/avatars/' + file.filename,
+  //     password: bcrypt.hashSync(body.password, 10),
+  //     passwordCheck: bcrypt.hashSync(body.passwordCheck, 10),
+  //   }
 
-    listUsers.push(user);
-    saveUsers();
-   },
+  //   listUsers.push(user);
+  //   saveUsers();
+  //  },
 
-   createAdmin(body, file){
-    const user = {
-      id: Date.now(), //timestamp
-      ...body,
-      role: "admin",
-      image: '/images/avatars/' + file.filename,
-      password: bcrypt.hashSync(body.password, 10),
-      passwordCheck: bcrypt.hashSync(body.passwordCheck, 10),
-    };
+  //  createAdmin(body, file){
+  //   const user = {
+  //     id: Date.now(),
+  //     ...body,
+  //     role: "admin",
+  //     image: '/images/avatars/' + file.filename,
+  //     password: bcrypt.hashSync(body.password, 10),
+  //     passwordCheck: bcrypt.hashSync(body.passwordCheck, 10),
+  //   };
 
-    listUsers.push(user);
-    saveUsers();
-   },
+  //   listUsers.push(user);
+  //   saveUsers();
+  //  },
 
    deleteOne(id){
     const index = listUsers.findIndex(user => user.id == id);
@@ -68,6 +113,6 @@ module.exports = {
   
     saveUsers();
    }
-
+ 
 }
 

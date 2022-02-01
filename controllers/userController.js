@@ -51,10 +51,10 @@ const controllador = {
     });
   },
 
-  processRegister: (req, res) => {
+  processRegister: async (req, res) => {
     const resultValidations = validationResult(req);
-    let userInDB = usersModel.findByField('email', req.body.email);
-
+    const userInDB = await usersModel.findByEmail(req.body.email);
+    
     if(userInDB){
       return res.render('register', {
         errors: {
@@ -75,8 +75,12 @@ const controllador = {
 
     if(!userInDB && resultValidations.errors.length <= 0){
     usersModel.createOne(req.body, req.file)
-    return res.redirect('/market');
+    .then(() => {
+      return res.redirect('/market');
+      })
+    .catch(error => console.log(error));      
     }    
+
   },
 
   profile: (req, res) => {
@@ -98,9 +102,9 @@ const controllador = {
     });
   },
 
-  processRegisterAdmin: (req, res) => {
+  processRegisterAdmin: async (req, res) => {
     const resultValidations = validationResult(req);
-    let userInDB = usersModel.findByField('email', req.body.email);
+    let userInDB = await usersModel.findByEmail(req.body.email);
 
     if(userInDB){
       res.render('register', {
@@ -122,15 +126,20 @@ const controllador = {
     
     if(!userInDB && resultValidations.errors.length <= 0){
     usersModel.createAdmin(req.body, req.file)
+    .then(() => {
       return res.redirect('/admin-edit');
+    })
     }    
   },
 
   listUsers: (req, res) => {
-    res.render('listUsers', {
-      pageTitle: 'Users Admin - ',
-      listUsers: usersModel.getAll(),
-    });
+    usersModel.listUsers()
+    .then(listUsers => {
+      res.render('listUsers', {
+        pageTitle: 'Users Admin - ',
+        listUsers
+      })
+    })
   },
 
   destroyUser: (req, res) => {

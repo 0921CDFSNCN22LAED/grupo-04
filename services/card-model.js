@@ -33,8 +33,6 @@ module.exports = {
       create_data: body.date,
       price: body.price,
       category_id: body.category      
-      // image: '/images/calamardos-nft/' + file.filename,
-      // ...body
     })
   },
 
