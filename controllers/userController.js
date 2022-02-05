@@ -11,16 +11,21 @@ const controllador = {
   },
 
   processLogin: async (req, res) => {
-    let userToLogin = await usersModel.findByEmail(req.body.email);
+    let userToLogin = await usersModel.findByEmail(req.body.email); // busca en la DB
     
     if(userToLogin){
       let confirmPassword = bcrypt.compareSync(req.body.password, userToLogin.password)    
       if(confirmPassword){
-        // delete userToLogin.password;
+        // delete userToLogin.password; // no va
         req.session.userLogged = userToLogin;
-
+        
+        
         if(req.body.rememberUser){
           res.cookie('rememberMe', req.body.email, { maxAge: (100 * 60) * 60})
+        }
+        
+        if(userToLogin.dataValues.role == 'admin'){
+          return res.redirect('/admin-edit');
         }
 
         return res.redirect('/user/profile');

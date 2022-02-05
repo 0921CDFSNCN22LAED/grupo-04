@@ -1,19 +1,27 @@
-const { findByField } = require('../services/user-model');
+// const { findByField } = require('../services/user-model');
+const { findByEmail } = require('../services/user-model');
 
-function userLoggedMiddleware(req, res, next){
+async function userLoggedMiddleware(req, res, next){
 	res.locals.isLogged = false;
 
 	let emailInCookie = req.cookies.userEmail;
-	let userFromCookie = findByField('email', emailInCookie);
+	// let userFromCookie = findByField('email', emailInCookie);
 
-	if(userFromCookie){
-		req.session.userLogged = userFromCookie;
-	}
+  if(emailInCookie){
+    let userFromCookie = await findByEmail(emailInCookie); 
+    
+    if(userFromCookie){
+      req.session.userLogged = userFromCookie;
+    }
+    
+  }
+
 
 	if(req.session.userLogged){
 		res.locals.isLogged = true;
 		res.locals.userLogged = req.session.userLogged;
 	}
+
 
 	next();
 }

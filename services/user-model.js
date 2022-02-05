@@ -74,10 +74,11 @@ module.exports = {
   },
 
   // devuelve el primero que encuentra
-  findByField(field, text){
+  findByField(field, text){ // ver cookie no busca en la db
     const user = listUsers.find(user => user[field] === text);
     return user;
   },
+
 
 
   // createOne(body, file){
