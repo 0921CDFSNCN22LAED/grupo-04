@@ -19,12 +19,13 @@ const controllador = {
         // delete userToLogin.password; // no va
         req.session.userLogged = userToLogin;
         
-        
+
         if(req.body.rememberUser){
           res.cookie('rememberMe', req.body.email, { maxAge: (100 * 60) * 60})
         }
         
         if(userToLogin.dataValues.role == 'admin'){
+          req.session.isAdmin = true;
           return res.redirect('/admin-edit');
         }
 

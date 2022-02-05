@@ -126,9 +126,17 @@
               </div>
             </li>
             <!--fin modal Carrito-->
- 
-
+            
             <% if(locals.isLogged){ %>
+
+              <% if(locals.isAdmin){ %> 
+                <li class="nav-item">
+                  <a class="nav-link d-lg-flex flex-lg-column mt-1" href="/user/admin"><img src="/images/address-card.svg" class="icon-nav icon-simple" alt=""/>New Admin</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-lg-flex flex-lg-column mt-1" href="/admin-edit"><img src="/images/edit.svg" class="icon-nav icon-simple" alt=""/>Edit Cards</a>
+                </li>
+                <% } %> 
             <li class="nav-item">
               <a class="nav-link d-lg-flex flex-lg-column mt-1" href="/user/profile">
                 <img src="<%= locals.userLogged.avatar %>" width="40" style="border-radius: 100%;" class="icon-nav icon-simple" alt=""/>
