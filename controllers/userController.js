@@ -89,12 +89,51 @@ const controllador = {
 
   },
 
-  profile: (req, res) => {
+  profile: async (req, res) => {
+    // let oldBuys = await usersModel.oldBuyComplete();
+    let products = await usersModel.productBought();
+   
+    console.log(req.session.userLogged);
+
+    const oldKarts = [];
+
+    products.forEach(prod => prod.karts.forEach(kart => {
+      if(kart.dataValues.usuario_id == req.session.userLogged.id){
+        oldKarts.push(kart.dataValues);
+        
+        // usersModel.oldBuyComplete()
+        // .then((oldBuys) =>{
+        //   oldBuys.forEach(card => {
+        //     if(card.usuario_id == req.session.userLogged.id){
+        //       const kartOlds = kart.dataValues;
+        //       const products = card
+        //       res.render('userProfile', {
+        //         pageTitle: 'Profile - ',
+        //         user: req.session.userLogged,
+        //         kartOlds,
+        //     })
+        //     }
+        //   })
+        // })
+      }
+    })
+    );
+    
+    console.log(oldKarts)
+   
     res.render('userProfile', {
       pageTitle: 'Profile - ',
       user: req.session.userLogged,
+      oldKarts
     })
   },
+
+  // profile: (req, res) => {
+  //   res.render('userProfile', {
+  //     pageTitle: 'Profile - ',
+  //     user: req.session.userLogged,
+  //   })
+  // },
 
   logout: (req, res) => {
     res.clearCookie('rememberMe');

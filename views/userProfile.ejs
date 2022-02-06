@@ -11,15 +11,41 @@
 
 	<div class="container body-container">
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<h2>Hi <%= user.name %> !! Welcome to Calamarket</h2>
-				<img src="<%= user.avatar %> ">
+				<img src="<%= user.avatar %>" class="h-25">
 				<br>
 				<br>
 				<div class="alert alert-success"><%= user.email %> </div>
 			</div>
+      <% if(oldKarts != []){ %>
+        <div class="col-md-8">
+          <h2>Antiguas Compras</h2>
+        <!-- inicio acordion --> 
+          <div class="accordion" id="accordionExample">
+            <% oldKarts.forEach((kart) => { %>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <h4>Compra # <%= kart.id %></h4>
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <strong>Items: </strong> <%= kart.items %>
+                    <strong>Total: </strong> <%= kart.total %>
+                  </div>
+                </div>
+              </div>
+            <% }) %>
+        <!-- fin acordion -->           
+        </div>
+      <% } %> 
 		</div>
+
 	</div>
+
+  
 
 <!-- inicio footer -->
 
