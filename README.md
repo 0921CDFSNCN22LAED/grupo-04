@@ -41,5 +41,8 @@ https://trello.com/b/NFyjPNNu/tareas
 ### User: user@user.com
 ### Password: 11111
 
+### User: user2@user.com
+### Password: 11111
+
 ### User Admin: user@admin.com
 ### Password: 11111
