@@ -59,7 +59,6 @@ CREATE TABLE `karts` (
   `id` int(6) NOT NULL,
   `items` int(30) NOT NULL,
   `total` decimal(5,4) NOT NULL,
-  `products_id` int(6) NOT NULL,
   `usuario_id` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -113,8 +112,8 @@ ALTER TABLE `category_card`
 --
 ALTER TABLE `karts`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `uduario_id` (`usuario_id`),
-  ADD KEY `products` (`products_id`);
+  ADD KEY `uduario_id` (`usuario_id`);
+
 
 --
 -- Indices de la tabla `product_kart`
@@ -179,7 +178,6 @@ ALTER TABLE `cards`
 -- Filtros para la tabla `karts`
 --
 ALTER TABLE `karts`
-  ADD CONSTRAINT `products` FOREIGN KEY (`products_id`) REFERENCES `product_kart` (`id`),
   ADD CONSTRAINT `user_kart` FOREIGN KEY (`usuario_id`) REFERENCES `users` (`id`);
 
 --

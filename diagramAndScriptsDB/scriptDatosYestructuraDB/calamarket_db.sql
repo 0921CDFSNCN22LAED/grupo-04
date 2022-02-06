@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-01-2022 a las 01:40:50
+-- Tiempo de generación: 06-02-2022 a las 05:27:30
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -69,6 +69,103 @@ INSERT INTO `cards` (`id`, `name`, `description`, `rating`, `image`, `create_dat
 (24, 'Ryu', 'Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim.', 2, '/images/calamardos-nft/ryu.jpg', '2021-11-25', '0.3040', 4),
 (25, 'Ryu14', 'Morbi vel lectus in quam fringilla rhoncus.', 7, '/images/calamardos-nft/ryu.jpg', '2021-09-15', '0.3620', 4);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `category_card`
+--
+
+CREATE TABLE `category_card` (
+  `id` int(11) NOT NULL,
+  `name` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `category_card`
+--
+
+INSERT INTO `category_card` (`id`, `name`) VALUES
+(1, 'anime'),
+(2, 'action'),
+(3, 'movie'),
+(4, 'other');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `karts`
+--
+
+CREATE TABLE `karts` (
+  `id` int(6) NOT NULL,
+  `items` int(30) NOT NULL,
+  `total` decimal(5,4) NOT NULL,
+  `usuario_id` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `karts`
+--
+
+INSERT INTO `karts` (`id`, `items`, `total`, `usuario_id`) VALUES
+(1, 3, '2.6542', 5),
+(2, 4, '1.1207', 7),
+(3, 3, '1.4291', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `product_kart`
+--
+
+CREATE TABLE `product_kart` (
+  `id` int(6) NOT NULL,
+  `kart_id` int(6) NOT NULL,
+  `card_id` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `product_kart`
+--
+
+INSERT INTO `product_kart` (`id`, `kart_id`, `card_id`) VALUES
+(1, 1, 19),
+(2, 1, 25),
+(3, 1, 5),
+(4, 2, 6),
+(5, 2, 10),
+(6, 2, 8),
+(7, 2, 9),
+(8, 3, 12),
+(9, 3, 16),
+(10, 3, 10);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(6) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `user_name` varchar(20) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `avatar` varchar(60) NOT NULL,
+  `password` varchar(80) NOT NULL,
+  `role` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `user_name`, `email`, `avatar`, `password`, `role`) VALUES
+(2, 'Sumo', 'Cudi', 'gordo@gmail.com', '/images/avatars/avatar-1642394851753.jpg', '$2a$10$p2fa3O9MckUbq/by8G5bXudhnnO71LN6yBHuIFOIuL.iy3FcDjHzW', 'admin'),
+(5, 'Usuario Prueba', 'User', 'user@user.com', '/images/avatars/avatar-1643735195804.png', '$2a$10$4tvV2vgh3xWRF.K7jij3auakT.FDqpsqg9qMUzleybMQvKBCyTDrO', 'user'),
+(6, 'Admin Prueba', 'Admin', 'user@admin.com', '/images/avatars/avatar-1643735411784.png', '$2a$10$XkQX22HEFX.YXQBdX40/XuRTElmIrix7Ai7BrZJFZbzXqN/UBuOAm', 'admin'),
+(7, 'Usuario Prueba 2', 'User2', 'user2@user.com', '/images/avatars/avatar-1644117521407.png', '$2a$10$OYTPw.nxLns2QlVRcTu5ZOZzSwp/yu6k.CLNZRN1ygSBY4TcjQM.2', 'user');
+
 --
 -- Índices para tablas volcadas
 --
@@ -81,6 +178,34 @@ ALTER TABLE `cards`
   ADD KEY `category` (`category_id`);
 
 --
+-- Indices de la tabla `category_card`
+--
+ALTER TABLE `category_card`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `karts`
+--
+ALTER TABLE `karts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `uduario_id` (`usuario_id`);
+
+--
+-- Indices de la tabla `product_kart`
+--
+ALTER TABLE `product_kart`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_kart` (`kart_id`),
+  ADD KEY `card_id` (`card_id`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -91,6 +216,30 @@ ALTER TABLE `cards`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
+-- AUTO_INCREMENT de la tabla `category_card`
+--
+ALTER TABLE `category_card`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `karts`
+--
+ALTER TABLE `karts`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `product_kart`
+--
+ALTER TABLE `product_kart`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- Restricciones para tablas volcadas
 --
 
@@ -99,6 +248,19 @@ ALTER TABLE `cards`
 --
 ALTER TABLE `cards`
   ADD CONSTRAINT `category` FOREIGN KEY (`category_id`) REFERENCES `category_card` (`id`);
+
+--
+-- Filtros para la tabla `karts`
+--
+ALTER TABLE `karts`
+  ADD CONSTRAINT `user_kart` FOREIGN KEY (`usuario_id`) REFERENCES `users` (`id`);
+
+--
+-- Filtros para la tabla `product_kart`
+--
+ALTER TABLE `product_kart`
+  ADD CONSTRAINT `product_kart` FOREIGN KEY (`kart_id`) REFERENCES `karts` (`id`),
+  ADD CONSTRAINT `product_kart_ibfk_1` FOREIGN KEY (`card_id`) REFERENCES `cards` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
