@@ -100,6 +100,8 @@ const controllador = {
     products.forEach(prod => prod.karts.forEach(kart => {
       if(kart.dataValues.usuario_id == req.session.userLogged.id){
         oldKarts.push(kart.dataValues);
+         
+       // terminar para pasar a la vista la lista de los items comprados
         
         // usersModel.oldBuyComplete()
         // .then((oldBuys) =>{
