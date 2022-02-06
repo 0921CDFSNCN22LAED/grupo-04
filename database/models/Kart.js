@@ -12,9 +12,6 @@ module.exports = (sequelize, dataTypes) => {
     total: {
       type: dataTypes.DECIMAL,
     },
-    products_id: {
-      type: dataTypes.INTEGER,
-    },
     usuario_id: {
       type: dataTypes.INTEGER,
     },
@@ -30,14 +27,6 @@ module.exports = (sequelize, dataTypes) => {
     Kart.belongsTo(models.Users, {
       as: 'kart',
       foreignKey: 'id'
-    });
-
-    Kart.belongsToMany(models.Cards, {
-      as: 'products',
-      through: 'product_kart',
-      foreignKey: 'card_id',
-      otherKey: 'kart_id',
-      timestamps: false    // va false ?? 
     });
   }
 
