@@ -27,13 +27,13 @@
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <h4>Compra # <%= kart.id %></h4>
+                    <h4>NFT # <%= kart.id %> Name: <%= kart.name %></h4>
                   </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                    <strong>Items: </strong> <%= kart.items %>
-                    <strong>Total: <i class="fas fa-gem mx-1"></i> </strong> <%= kart.total %>
+                    <!-- <strong>Items: </strong> <%= kart.items %> -->
+                    <strong>Precio pagado: <i class="fas fa-gem mx-1"></i> </strong> <%= kart.price %>
                   </div>
                 </div>
               </div>

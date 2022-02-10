@@ -1,22 +1,13 @@
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
-// Services Data Json
-// const fs = require('fs');
-// const path = require('path');
-
-// const cardsFilePath = path.join(__dirname, '../data/cardsDataBase.json');
-// const listCards = JSON.parse(fs.readFileSync(cardsFilePath, 'utf-8'));
-
-// function saveCards(){
-// 	const texto = JSON.stringify(listCards, null, 2);
-// 	fs.writeFileSync(cardsFilePath, texto, "utf-8");
-// }
-
 module.exports = {
   listCards(){
     return db.Cards.findAll({
-      include: [{association: 'categories'}]
+      include: [
+        {association: 'categories'},
+        {association: 'products'}
+      ]
     });
   },
 

@@ -26,7 +26,15 @@ module.exports = (sequelize, dataTypes) => {
   Kart.associate = function(models){
     Kart.belongsTo(models.Users, {
       as: 'kart',
-      foreignKey: 'id'
+      foreignKey: 'usuario_id'
+    });
+
+  Kart.belongsToMany(models.Cards, {
+      as: 'products',
+      through: 'product_kart',
+      foreignKey: 'kart_id',
+      otherKey: 'card_id',
+      timestamps: false    
     });
   }
 
