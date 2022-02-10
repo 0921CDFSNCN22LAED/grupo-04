@@ -1,12 +1,10 @@
-// const { findByField } = require('../services/user-model');
 const { findByEmail } = require('../services/user-model');
 
 async function userLoggedMiddleware(req, res, next){
 	res.locals.isLogged = false;
 
 	let emailInCookie = req.cookies.userEmail;
-	// let userFromCookie = findByField('email', emailInCookie);
-
+	
   if(emailInCookie){
     let userFromCookie = await findByEmail(emailInCookie); 
     
@@ -25,9 +23,6 @@ async function userLoggedMiddleware(req, res, next){
       res.locals.isAdmin = true;
     }
 	}
-
-
-
 
 	next();
 }

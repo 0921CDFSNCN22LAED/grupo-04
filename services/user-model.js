@@ -1,8 +1,6 @@
-// const fs = require('fs');
-// const path = require('path');
+const db = require('../database/models');
 const bcrypt = require('bcryptjs');
 
-const db = require('../database/models');
 
 module.exports = {
   listUsers(){
@@ -57,27 +55,6 @@ module.exports = {
       ]
     })
    },
-
-
-  //Services Data Json
-  
-  // listUsers,
-  // saveUsers,
-
-  // getAll(){
-  //   return listUsers;
-  // },
-
-  findByPk(id){ // solo funcion
-    const user = listUsers().find(user => user.id == id);
-    return user;
-  },
-
-  // devuelve el primero que encuentra
-  findByField(field, text){
-    const user = listUsers.find(user => user[field] === text);
-    return user;
-  },
  
 }
 

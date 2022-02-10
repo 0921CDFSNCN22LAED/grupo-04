@@ -62,48 +62,4 @@ module.exports = {
     })
   }
 
-
-  // Services Data Json
-
-  // listCards,
-  // saveCards,
-
-  // getAll(){
-  //   return listCards;
-  // },
-
-  // findOne(id){
-  //   const card = listCards.find(card => card.id == id);
-  //   return card;
-  // },
-
-  // updateOne(card, dato, file){
-  //   card.name = dato.name;
-  //   card.price = dato.price;
-  //   card.date = dato.date;
-  //   card.category = dato.category;
-  //   card.desc = dato.desc;
-  //   if(file){
-  //    card.image = '/images/calamardos-nft/' + file.filename;
-  //   }
-  //   saveCards();
-  //  },
-
-  //  createOne(body, file){
-  //   const card = {
-  //     id: Date.now(), //timestamp
-  //     image: '/images/calamardos-nft/' + file.filename,
-  //     ...body,
-  //   };
-
-  //   listCards.push(card);
-  //   saveCards();
-  //  },
-  
-  //  deleteOne(id){
-  //   const index = listCards.findIndex(card => card.id == id);
-  //   listCards.splice(index, 1);
-  
-  //   saveCards();
-  //  },
 }
