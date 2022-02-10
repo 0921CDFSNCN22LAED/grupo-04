@@ -19,7 +19,14 @@ async function userLoggedMiddleware(req, res, next){
 	if(req.session.userLogged){
 		res.locals.isLogged = true;
 		res.locals.userLogged = req.session.userLogged;
+    const user = req.session.userLogged;
+  
+    if (user.role == 'admin') {
+      res.locals.isAdmin = true;
+    }
 	}
+
+
 
 
 	next();

@@ -5,8 +5,6 @@ async function isAdminMiddleware(req, res, next){
 		return res.redirect('/market');
 	}
 
-  res.locals.isAdmin = true;
-
 	next();
 }
 
