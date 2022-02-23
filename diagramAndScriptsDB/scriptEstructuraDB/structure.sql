@@ -46,7 +46,7 @@ CREATE TABLE `cards` (
 
 CREATE TABLE `category_card` (
   `id` int(11) NOT NULL,
-  `name` int(11) NOT NULL
+  `name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
