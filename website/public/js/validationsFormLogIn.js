@@ -10,7 +10,7 @@ const validarFormulario = (e) => {
   switch (e.target.name) {
     case 'email':
       if (email.value.lenght <= 1 || email.value.lenght > 20) {
-        labelEmail.innerText = "El mail debe ya estar en la base";
+        labelEmail.innerText = "El email debe ya estar en la base";
         labelEmail.classList.add('is-invalid');
         labelEmail.classList.remove('is-valid');
       } else {
@@ -20,8 +20,8 @@ const validarFormulario = (e) => {
       }
       break
     case 'password':
-      if (password.value.lenght <= 7 || password.value.lenght > 20) {
-        labelPassword.innerText = "La contraseña debe ya existir";
+      if (password.value.lenght < 1) {
+        labelPassword.innerText = "Debes escribir una contraseña";
         labelPassword.classList.add('is-invalid');
         labelPassword.classList.remove('is-valid');
       } else {
