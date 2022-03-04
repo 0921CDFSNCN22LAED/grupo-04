@@ -14,15 +14,15 @@
 
   <main class="container body-container">
     <section>
-      <form action="/user/register" method="POST" enctype="multipart/form-data">
-        <button class="design-btn"><img src="/images/google-logo.svg" alt="Google logo" />login with Google</button>
-        <button class="design-btn"><img src="/images/facebook.svg" alt="Facebook logo" />login with Facebook</button>
+      <form action="/user/register" method="POST" enctype="multipart/form-data" id="form">                        
+        <button class="design-btn" type="button"><img src="/images/google-logo.svg" alt="Google logo" />login with Google</button>
+        <button class="design-btn" type="button"><img src="/images/facebook.svg" alt="Facebook logo" />login with Facebook</button>
         <section class="mt-3">
           <ul class="errors"></ul>
           <div>
             <label for="name" class="form-label labelName"></label>
             <input type="text" placeholder="nombre" value="<%= locals.oldData ? oldData.name : null%>"
-              class="design-input" id="name" name="name" />
+              class="design-input input-name" id="name" name="name" />
             <% if (locals.errors && errors.name){ %>
               <div class="text-danger">
                 <p>
@@ -34,7 +34,7 @@
           <div>
             <label for="userName" class="form-label labelUsername"></label>
             <input type="text" placeholder="choose username" value="<%= locals.oldData ? oldData.userName : null%>"
-              class="design-input" id='userName' name="userName" />
+              class="design-input input-userName" id='userName' name="userName" />
             <% if (locals.errors && errors.userName){ %>
               <div class="text-danger">
                 <p>
@@ -46,7 +46,7 @@
           <div>
             <label for="email" class="form-label labelEmail"></label>
             <input type="text" placeholder="email" value="<%= locals.oldData ? oldData.email : null%>"
-              class="design-input" id='email' name="email" />
+              class="design-input input-email" id='email' name="email" />
             <% if (locals.errors && errors.email){ %>
               <div class="text-danger">
                 <p>
@@ -57,7 +57,7 @@
           </div>
           <div>
             <label for="password" class="form-label labelPassword"></label>
-            <input type="password" placeholder="password" class="design-input" id="password" name="password" />
+            <input type="password" placeholder="password" class="design-input input-password" id="password" name="password" />
             <% if (locals.errors && errors.password){ %>
               <div class="text-danger">
                 <p>
@@ -68,7 +68,7 @@
           </div>
           <div>
             <label for="rpassword" class="form-label labelRpassword"></label>
-            <input type="password" placeholder="repeat password" class="design-input" id="rpassword"
+            <input type="password" placeholder="repeat password" class="design-input input-rPassword" id="rpassword"
               name="passwordCheck" />
             <% if (locals.errors && errors.passwordCheck){ %>
               <div class="text-danger">
@@ -79,8 +79,8 @@
               <% } %>
           </div>
           <div class="flex-column mt-2">
-            <label for="avatar">Sube tu avatar</label>
-            <input type="file" class="design-input labelAvatar" placeholder="avatar" id="inputFile" accept="image/*"
+            <label for="avatar" class="form-label labelAvatar">Sube tu avatar</label>
+            <input type="file" class="design-input input-avatar" placeholder="avatar" id="inputFile" accept="image/*"
               multiple name="avatar">
             <% if (locals.errors && errors.avatar){ %>
               <div class="text-danger">
@@ -101,6 +101,8 @@
   <%- include("./partials/Footer") %>
 
     <!-- fin footer -->
+
+    <script src="/js/validationsFormRegister.js"></script>
 
     <!-- Scripts -->
     <%- include("./partials/Scripts") %>

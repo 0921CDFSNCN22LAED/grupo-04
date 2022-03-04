@@ -2,13 +2,13 @@ window.addEventListener('load', () => {
 
   const form = document.querySelector('#form');
   const email = document.querySelector('#email');
-  const password = document.querySelector('#password');
-  const ulErrors = document.querySelector('.errors');
-  const inputs = document.querySelectorAll('input');
   const labelEmail = document.querySelector('.labelEmail');
   const inputEmail = document.querySelector('.input-email');
+  const password = document.querySelector('#password');
   const labelPassword = document.querySelector('.labelPassword');
   const inputPassword = document.querySelector('input.input-password');
+  const ulErrors = document.querySelector('.errors');
+  const inputs = document.querySelectorAll('input');
 
   const validarFormulario = (e) => {
     switch (e.target.name) {
@@ -30,8 +30,7 @@ window.addEventListener('load', () => {
           inputPassword.classList.remove('border', 'border-success');
         } else {
           labelPassword.innerText = "";
-          labelPassword.classlist.remove('text-danger');
-          // no funciona el border success, no se porque
+          labelPassword.classList.remove('text-danger');
           inputPassword.classList.add('border', 'border-success');
         }
         break;
@@ -52,9 +51,6 @@ window.addEventListener('load', () => {
     if (password.value == '') {
       errors.push('El campo Password no puede quedar vacio');
     }
-  
-    console.log(errors.length);
-    console.log(errors);
   
     if (errors.length > 0) {
       e.preventDefault();
