@@ -1,3 +1,4 @@
+const { validationResult } = require('express-validator');
 const cardsModel = require('../services/card-model');
 
 
@@ -77,11 +78,29 @@ const controlador = {
   },
 
   new: (req, res) => {
-    cardsModel.createOne(req.body, req.file)
-    .then(()=>{
-      res.redirect('/admin-edit'); 
-    })
-    .catch(error => console.log(error));
+    const resultValidations = validationResult(req);
+    console.log(resultValidations.mapped());
+
+    if(resultValidations.errors.length > 0){
+      cardsModel.categories()
+      .then(categories => {
+        return res.render('admin-create-cards', {
+          errors: resultValidations.mapped(),
+          oldData: req.body,
+          pageTitle: 'Admin - ',
+          categories
+        });
+      })
+    }
+
+    if(resultValidations.errors.length <= 0){
+      cardsModel.createOne(req.body, req.file)
+      .then(()=>{
+        res.redirect('/admin-edit'); 
+      })
+      .catch(error => console.log(error));         
+    }    
+
   },
 
   destroy: (req, res) => {

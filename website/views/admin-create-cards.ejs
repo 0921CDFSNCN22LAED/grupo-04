@@ -12,18 +12,35 @@
 
       <h1>Carga de Productos</h1>
 
-    <form action="/admin-create" method="POST" enctype="multipart/form-data">
-      <div class="input-group mb-3">
+    <ul class="errors"></ul>
+    <form action="/admin-create" method="POST" enctype="multipart/form-data" id="form">
+      <div class="input-group mt-3">
         <span class="input-group-text design-input" id="basic-addon1">Nombre:</span>
-        <input type="text" class="form-control design-input" placeholder="nombre" aria-describedby="basic-addon1" name="name">
+        <input type="text" class="form-control design-input input-name" placeholder="nombre" aria-describedby="basic-addon1" name="name">
+        <% if (locals.errors && errors.name){ %>
+          <div class="text-danger">
+            <p>
+              <%= errors.name.msg %>
+            </p>
+          </div>
+          <% } %>
       </div>
+      <div class="labelName"></div>
 
-      <div class="input-group mb-3">
+      <div class="input-group mt-3">
         <span class="input-group-text design-input" id="basic-addon1">Imagen NFT:</span>
-        <input type="file" class="form-control design-btn" placeholder="imagenNFT" id="inputFile" accept="image/*" name="image">
+        <input type="file" class="form-control design-btn input-image" placeholder="imagenNFT" id="inputFile" accept="image/*" name="image">
+        <% if (locals.errors && errors.image){ %>
+          <div class="text-danger">
+            <p>
+              <%= errors.image.msg %>
+            </p>
+          </div>
+          <% } %>
       </div>
+      <div class="labelImage"></div>
       
-      <div class="input-group mb-3">
+      <div class="input-group mt-3">
         <label class="input-group-text design-input" for="inputGroupSelect01">Categoria</label>
         <select class="form-select design-btn" id="inputGroupSelect01" name="category">          
           <option selected>Choose...</option>
@@ -31,39 +48,79 @@
           <option value="<%= category.id %>"><%= category.name %></option>
           <% } %>
         </select>
+        <% if (locals.errors && errors.category){ %>
+          <div class="text-danger">
+            <p>
+              <%= errors.category.msg %>
+            </p>
+          </div>
+          <% } %>
       </div>
+      <div class="labelCategories"></div>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text design-input" id="basic-addon3">Fecha de creacion</span>
-        <input type="date" class="form-control design-input" id="basic-url" aria-describedby="basic-addon3" name="date">
+      <div class="input-group mt-3">
+        <label for="date" class="input-group-text design-input">Fecha de creacion</label>
+        <input type="date" class="form-control design-input input-date" id="basic-url" aria-describedby="basic-addon3" name="date">
+        <% if (locals.errors && errors.date){ %>
+          <div class="text-danger">
+            <p>
+              <%= errors.date.msg %>
+            </p>
+          </div>
+          <% } %>
       </div>
+      <div class="labelDate"></div>
 
-      <div class="input-group">
-        <span class="input-group-text design-input">Descripcion</span>
-        <textarea class="form-control design-input" aria-label="With textarea" name="desc"></textarea>
+      <div class="input-group mt-3">
+        <label for="desc" class="input-group-text design-input">Descripcion</label>
+        <textarea class="form-control design-input input-desc" aria-label="With textarea" name="desc"></textarea>
+        <% if (locals.errors && errors.desc){ %>
+          <div class="text-danger">
+            <p>
+              <%= errors.desc.msg %>
+            </p>
+          </div>
+          <% } %>
       </div>
+      <div class="labelDesc"></div>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text design-input" id="basic-addon1"><i class="fas fa-award mx-1"></i></span>
-        <input type="number" class="form-control design-input" placeholder="rating" aria-describedby="basic-addon1" name="rating">
+      <div class="input-group mt-3">
+        <label for="rating" class="input-group-text design-input"><i class="fas fa-award mx-1"></i></label>
+        <input type="number" class="form-control design-input input-rating" placeholder="rating" aria-describedby="basic-addon1" name="rating">
         <span class="input-group-text design-input">Rating</span>
+        <% if (locals.errors && errors.rating){ %>
+          <div class="text-danger">
+            <p>
+              <%= errors.rating.msg %>
+            </p>
+          </div>
+          <% } %>
       </div>
+      <div class="labelRating"></div>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text design-input" id="basic-addon1"><i class="fas fa-gem mx-1"></i></span>
+      <div class="input-group mt-3">
+        <label for="price" class="input-group-text design-input"><i class="fas fa-gem mx-1"></i></label>
         <!-- <input type="number" class="form-control design-input" placeholder="price" aria-describedby="basic-addon1" name="price"> -->
-        <input type="number" min=0 max=1  class="form-control design-input" placeholder="price" aria-describedby="basic-addon1" name="price">
+        <input type="number" min=0 max=1 step="0.0001" class="form-control design-input input-price" placeholder="price" aria-describedby="basic-addon1" name="price">
         <span class="input-group-text design-input">ETH</span>
+        <% if (locals.errors && errors.price){ %>
+          <div class="text-danger">
+            <p>
+              <%= errors.price.msg %>
+            </p>
+          </div>
+          <% } %>
       </div>
+      <div class="labelPrice"></div>
             
       </section>
-        <button type="submit" class="design-btn">GUARDAR</button>
+        <button type="submit" class="design-btn mt-4">GUARDAR</button>
       </section>
          
     </form>  
 
     <section>
-      <a href="/admin-edit"><button class="design-btn">Ir a Editar</button></a>
+      <a href="/admin-edit"><button class="design-btn mb-4">Ir a Editar</button></a>
     <section>
     </main>
 
@@ -74,6 +131,7 @@
     <!-- fin footer -->
 
    <!-- Scripts -->
+   <script src="/js/validationsFormLoadCard.js"></script>
    <%- include("./partials/Scripts") %>
   </body>
 </html>
