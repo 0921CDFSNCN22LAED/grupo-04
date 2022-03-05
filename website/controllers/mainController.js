@@ -79,13 +79,14 @@ const controlador = {
 
   new: (req, res) => {
     const resultValidations = validationResult(req);
-    
+    // console.log(req.file);
     if(resultValidations.errors.length > 0){
       cardsModel.categories()
       .then(categories => {
         return res.render('admin-create-cards', {
           errors: resultValidations.mapped(),
           oldData: req.body,
+          oldFile: req.file,
           pageTitle: 'Admin - ',
           categories
         });

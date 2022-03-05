@@ -16,7 +16,7 @@
     <form action="/admin-create" method="POST" enctype="multipart/form-data" id="form">
       <div class="input-group mt-3">
         <span class="input-group-text design-input" id="basic-addon1">Nombre:</span>
-        <input type="text" class="form-control design-input input-name" placeholder="nombre" aria-describedby="basic-addon1" name="name">
+        <input type="text" class="form-control design-input input-name" placeholder="nombre" value="<%= locals.oldData ? oldData.name : null%>" aria-describedby="basic-addon1" name="name">
         <% if (locals.errors && errors.name){ %>
           <div class="text-danger">
             <p>
@@ -29,7 +29,7 @@
 
       <div class="input-group mt-3">
         <span class="input-group-text design-input" id="basic-addon1">Imagen NFT:</span>
-        <input type="file" class="form-control design-btn input-image" placeholder="imagenNFT" id="inputFile" accept="image/*" name="image">
+        <input type="file" class="form-control design-btn input-image" placeholder="imagenNFT" id="inputFile" accept="image/*" name="image" value="<%= locals.oldFile ? oldFile.path : null%>">
         <% if (locals.errors && errors.image){ %>
           <div class="text-danger">
             <p>
@@ -42,7 +42,7 @@
       
       <div class="input-group mt-3">
         <label class="input-group-text design-input" for="inputGroupSelect01">Categoria</label>
-        <select class="form-select design-btn" id="inputGroupSelect01" name="category">          
+        <select class="form-select design-btn input-category" id="inputGroupSelect01" name="category">          
           <option selected>Choose...</option>
           <% for(let category of categories){ %>
           <option value="<%= category.id %>"><%= category.name %></option>
@@ -60,7 +60,7 @@
 
       <div class="input-group mt-3">
         <label for="date" class="input-group-text design-input">Fecha de creacion</label>
-        <input type="date" class="form-control design-input input-date" id="basic-url" aria-describedby="basic-addon3" name="date">
+        <input type="date" class="form-control design-input input-date" value="<%= locals.oldData ? oldData.date : null%>" id="basic-url" aria-describedby="basic-addon3" name="date">
         <% if (locals.errors && errors.date){ %>
           <div class="text-danger">
             <p>
@@ -73,7 +73,7 @@
 
       <div class="input-group mt-3">
         <label for="desc" class="input-group-text design-input">Descripcion</label>
-        <textarea class="form-control design-input input-desc" aria-label="With textarea" name="desc"></textarea>
+        <textarea class="form-control design-input input-desc" aria-label="With textarea" name="desc" value="<%= locals.oldData ? oldData.desc : null%>"></textarea>
         <% if (locals.errors && errors.desc){ %>
           <div class="text-danger">
             <p>
@@ -86,7 +86,7 @@
 
       <div class="input-group mt-3">
         <label for="rating" class="input-group-text design-input"><i class="fas fa-award mx-1"></i></label>
-        <input type="number" class="form-control design-input input-rating" placeholder="rating" aria-describedby="basic-addon1" name="rating">
+        <input type="number" class="form-control design-input input-rating" placeholder="rating" aria-describedby="basic-addon1" name="rating" value="<%= locals.oldData ? oldData.rating : null%>">
         <span class="input-group-text design-input">Rating</span>
         <% if (locals.errors && errors.rating){ %>
           <div class="text-danger">
@@ -101,7 +101,7 @@
       <div class="input-group mt-3">
         <label for="price" class="input-group-text design-input"><i class="fas fa-gem mx-1"></i></label>
         <!-- <input type="number" class="form-control design-input" placeholder="price" aria-describedby="basic-addon1" name="price"> -->
-        <input type="number" min=0 max=1 step="0.0001" class="form-control design-input input-price" placeholder="price" aria-describedby="basic-addon1" name="price">
+        <input type="number" min=0 max=1 step="0.0001" class="form-control design-input input-price" placeholder="price" aria-describedby="basic-addon1" name="price" value="<%= locals.oldData ? oldData.price : null%>">
         <span class="input-group-text design-input">ETH</span>
         <% if (locals.errors && errors.price){ %>
           <div class="text-danger">
