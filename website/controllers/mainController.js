@@ -79,8 +79,7 @@ const controlador = {
 
   new: (req, res) => {
     const resultValidations = validationResult(req);
-    console.log(resultValidations.mapped());
-
+    
     if(resultValidations.errors.length > 0){
       cardsModel.categories()
       .then(categories => {
