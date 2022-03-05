@@ -79,14 +79,17 @@ window.addEventListener('load', () => {
           labelRpassword.classList.remove('text-danger');
         }
         break;
-        // sin funcionar validacion del avatar
       case 'avatar':
-        if (avatar.value.length <= 7 || avatar.value.length > 20) {
-          labelAvatar.innerText = "Debes subir una imagen";
+        // console.log(inputAvatar.value);
+        const file = inputAvatar.value;
+        const reg = /(.*?)\.(jpg|jpeg|png|gif)$/;
+        if(!file.match(reg)){
+          labelAvatar.innerText = "Debe ser un archivo válido(.jpg|jpeg|png|gif)";
           labelAvatar.classList.add('text-danger');
           labelAvatar.classList.remove('border', 'border-success');
         } else {
-          labelAvatar.innerText = "";
+          labelAvatar.innerText = "Avatar cargado";
+          labelAvatar.classList.add('text-success');
           inputAvatar.classList.add('border', 'border-success');
           labelAvatar.classList.remove('text-danger');
         }
@@ -100,7 +103,6 @@ window.addEventListener('load', () => {
   });
   
   form.addEventListener('submit', (e) => {
-    console.log('entre al addEventListener del submit');
     let errors = [];
     if (name.value == '') {
       errors.push('El campo Nombre no puede quedar vacio');
@@ -117,16 +119,18 @@ window.addEventListener('load', () => {
     if (rpassword.value == '') {
       errors.push('El campo Repeat Password no puede quedar vacio');
     }
+    if (inputAvatar.value == '') {
+      errors.push('Debes subir una imagen');
+    }
 
-    console.log(errors.length);
-    console.log(errors); 
+    // console.log(errors.length);
+    // console.log(errors); 
 
     if (errors.length > 0) {
       e.preventDefault();
       errors.forEach(error => {
         ulErrors.classList.add('alert-warning');
         ulErrors.innerHTML += `<li>${error}<li>`;
-        // console.log(error)
       })
     } else {
       alert('El usuario paso las validaciones del front')
