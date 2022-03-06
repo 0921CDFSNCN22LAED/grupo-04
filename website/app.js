@@ -36,7 +36,7 @@ app.listen(process.env.PORT || 3000, () => {
 // ************* Routes ************
 app.use('/', mainRoutes);
 app.use('/user', userRoutes);
-app.use('/api', apiUsersRoutes);
+app.use('/api/users', apiUsersRoutes);
 
 app.use((req, res, next) => {
   res.status(404).render("not-found");
