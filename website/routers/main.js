@@ -19,7 +19,7 @@ router.get('/market', controlador.market);
 
 /*** POST SEARCH CARDS ***/ 
 router.post('/market', controlador.search);
-
+router.post('/market/filter', controlador.searchCategory);
 
 /*** ADMIN EDITION ***/ 
 router.get('/admin-edit', authMiddleware, adminMiddleware, controlador.edition);

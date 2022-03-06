@@ -127,6 +127,36 @@ const controlador = {
       })
     })
     .catch(error => console.log(error));
+  },
+
+  searchCategory: (req, res) => {
+    const categories = cardsModel.categories();
+    let listCards = cardsModel.listCards();
+    const id = req.body.search;
+    if(id != 'CATEGORIAS'){
+      const find = cardsModel.searchCategory(id);
+      Promise
+    .all([find, categories])
+    .then(([find, categories]) =>{
+      res.render('market', {
+        pageTitle: 'Marketplace - ',
+        listCards: find,
+        categories
+      })
+    })
+    }else{      
+      Promise
+      .all([listCards, categories])
+      .then(([listCards, categories]) =>{
+        res.render('market', {
+          pageTitle: 'Marketplace - ',
+          listCards,
+          categories
+        })
+      })
+      .catch(error => console.log(error));
+    }
+    
   }
 
 };

@@ -60,6 +60,14 @@ module.exports = {
         }
       }
     })
+  },
+
+  searchCategory(id){
+    return db.Cards.findAll({
+      where: {
+        category_id: id       
+      }
+    })
   }
 
 }
