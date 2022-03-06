@@ -27,6 +27,10 @@ module.exports = {
     })
   },
 
+  findByPK(id){
+    return db.Users.findByPk(id)
+  },
+
   createAdmin(body, file){
     return db.Users.create({
       name: body.name,

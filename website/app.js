@@ -6,11 +6,14 @@ const cookieParser = require('cookie-parser');
 
 const mainRoutes = require('./routers/main');
 const userRoutes = require('./routers/userRoutes');
+const apiUsersRoutes = require('./routers/api/userRoutes');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+var cors = require('cors')
 
 const app = express();
 
 // ************ Middlewares ************
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
@@ -33,6 +36,7 @@ app.listen(process.env.PORT || 3000, () => {
 // ************* Routes ************
 app.use('/', mainRoutes);
 app.use('/user', userRoutes);
+app.use('/api', apiUsersRoutes);
 
 app.use((req, res, next) => {
   res.status(404).render("not-found");
