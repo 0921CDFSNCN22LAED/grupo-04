@@ -30,8 +30,8 @@ app.use(userLoggedMiddleware); // va despues de la sesion
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log('Servidor funcionando en puerto 3000');
+app.listen(process.env.PORT || 3001, () => {
+  console.log('Servidor funcionando en puerto 3001');
 });
 
 // ************* Routes ************
