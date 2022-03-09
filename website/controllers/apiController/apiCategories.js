@@ -23,6 +23,15 @@ module.exports = {
       }
     } catch (error){
       console.log(error);
+      const data = 'Tuvimos un problema';
+      const response = {
+        meta: {
+          status: false,
+          url: '/api/products/'
+        },
+        data,
+      };
+      return res.json(response);
     }
 
   }
