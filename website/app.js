@@ -8,6 +8,7 @@ const mainRoutes = require('./routers/main');
 const userRoutes = require('./routers/userRoutes');
 const apiUsersRoutes = require('./routers/api/userRoutes');
 const apiCardsRoutes = require('./routers/api/cardRoutes');
+const apiCategories = require('./routers/api/categoriesRoutes');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 var cors = require('cors')
 
@@ -39,6 +40,7 @@ app.use('/', mainRoutes);
 app.use('/user', userRoutes);
 app.use('/api/users', apiUsersRoutes);
 app.use('/api/products', apiCardsRoutes);
+app.use('/api/categories', apiCategories);
 
 app.use((req, res, next) => {
   res.status(404).render("not-found");
