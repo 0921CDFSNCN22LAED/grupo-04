@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <%- include("./partials/Head") %>
+  </head>
 
-<head>
-  <%- include("./partials/Head") %>
-</head>
+  <body class="bg_secondary">
+    <!-- inicio barra de navegacion -->
+    <header><%- include("./partials/NavBar") %></header>
+    <!-- fin barra de navegacion -->
 
-<body class="bg_secondary">
-  <!-- inicio barra de navegacion -->
-  <header>
-    <%- include("./partials/NavBar") %>
-  </header>
-  <!-- fin barra de navegacion -->
-
-  <main class="container vh-100 body-container">
-    <section>
-      <form action="/user/login" method="POST" id="form">
-        <button class="design-btn" type="button"><img src="/images/google-logo.svg" alt="Google logo" />login with Google</button>
-        <button class="design-btn" type="button"><img src="/images/facebook.svg" alt="Facebook logo" />login with Facebook</button>
-        <section >
-          <ul class="errors"></ul>
-          <div>
-            <label for="email" class="form-label labelEmail"></label>
-            <input type="text" placeholder="email" class="design-input input-email" id='email' name="email" />
-            <% if(locals.errors && errors.email ){ %>
+    <main class="container vh-100 body-container">
+      <section>
+        <form action="/user/login" method="POST" id="form">
+          <!-- <button class="design-btn" type="button">
+            <img src="/images/google-logo.svg" alt="Google logo" />login with Google
+          </button>
+          <button class="design-btn" type="button">
+            <img src="/images/facebook.svg" alt="Facebook logo" />login with Facebook
+          </button> -->
+          <section>
+            <ul class="errors"></ul>
+            <div>
+              <label for="email" class="form-label labelEmail"></label>
+              <input type="text" placeholder="email" class="design-input input-email" id="email" name="email" />
+              <% if(locals.errors && errors.email ){ %>
               <div class="text-danger">
-                <p>
-                  <%= errors.email.msg %>
-                </p>
+                <p><%= errors.email.msg %></p>
               </div>
               <% } %>
-          </div>
-          <div>
-            <label for="password" class="form-label labelPassword"></label>
-            <input type="password" placeholder="password" class="design-input input-password" id="password" name="password" />
-          </div>
-          <div class="form-group form-check">
-            <label class="form-check-label">
-              <input type="checkbox" class="form-check-input" name="rememberUser">Recordar mi usuario
-            </label>
-          </div>
-        </section>
-        <button type="submit" class="design-btn mt-3">LOGIN</button>
-      </form>
-    </section>
-  </main>
+            </div>
+            <div>
+              <label for="password" class="form-label labelPassword"></label>
+              <input
+                type="password"
+                placeholder="password"
+                class="design-input input-password"
+                id="password"
+                name="password"
+              />
+            </div>
+            <div class="form-group form-check">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" name="rememberUser" />Recordar mi usuario
+              </label>
+            </div>
+          </section>
+          <button type="submit" class="design-btn mt-3">LOGIN</button>
+        </form>
+      </section>
+    </main>
 
-  <script src="/js/validationsFormLogin.js"></script>
-  <!-- inicio footer -->
+    <script src="/js/validationsFormLogin.js"></script>
+    <!-- inicio footer -->
 
-  <%- include("./partials/Footer") %>
+    <%- include("./partials/Footer") %>
 
     <!-- fin footer -->
 
     <!-- Scripts -->
     <%- include("./partials/Scripts") %>
-</body>
-
+  </body>
 </html>
