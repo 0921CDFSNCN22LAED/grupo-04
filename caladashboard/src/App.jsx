@@ -17,11 +17,13 @@ function App() {
   return (
     <>
 
-<div className="container-fluid">
+  <div className="container-fluid">
       <div className="d-sm-flex aligns-items-center justify-content-between mb-4">
         <h1 className="h3 mb-0 text-gray-800 mt-2">C A L A D A S H B O A R D</h1>
       </div>
-      <Sidebar />
+      <div>
+          <Sidebar />
+        </div>
        {/* <ContentRowTop /> */}
 
     <Routes>
