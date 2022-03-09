@@ -27,7 +27,7 @@ const Sidebar = () => {
       <li className='nav-item'>
         <Link className='nav-link collapsed' to='/genres'>
           <i className='fas fa-fw fa-folder'></i>
-          <span>Genres</span>
+          <span>Categories</span>
         </Link>
       </li>
 

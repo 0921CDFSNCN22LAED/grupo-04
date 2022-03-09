@@ -13,7 +13,13 @@ window.addEventListener('load', () => {
   const validarFormulario = (e) => {
     switch (e.target.name) {
       case 'email':
+        const reg = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
         if (email.value.length <= 3) {
+          // if(!email.include('@')){
+          //   labelEmail.innerText = "Debes ingresar un email valido";
+          //   labelEmail.classList.add('text-danger');
+          //   inputEmail.classList.remove('border', 'border-success');
+          // }
           labelEmail.innerText = "Debes ingresar un email";
           labelEmail.classList.add('text-danger');
           inputEmail.classList.remove('border', 'border-success');
