@@ -14,7 +14,6 @@ const Home = () => {
           <ContentRowTop />
         </div>
       </div>
-      <Footer />
     </>
   );
 };

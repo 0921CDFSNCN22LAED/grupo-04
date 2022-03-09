@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ChartRow from './ChartRow';
 
 let tableRowsData = [
@@ -18,7 +18,9 @@ let tableRowsData = [
   },
 ];
 
-function Chart() {
+const Chart = () => {
+  // const [products, setProducts] = useState();
+
   return (
     /* <!-- DataTales Example --> */
     <div className='card shadow mb-4'>

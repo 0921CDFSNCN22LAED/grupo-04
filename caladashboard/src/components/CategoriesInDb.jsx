@@ -7,7 +7,7 @@ function GenresInDb() {
   const getCategoriesData = async () => {
     const response = await fetch('http://localhost:3001/api/categories');
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     setCategories(data.data);
   };
 
