@@ -11,109 +11,109 @@
     <main class="container body-container">
       <section>
         <form action="/user/admin" method="POST" enctype="multipart/form-data">
-        <!-- <button class="design-btn"><img src="/images/google-logo.svg" alt="Google logo" />login with Google</button>
+          <!-- <button class="design-btn"><img src="/images/google-logo.svg" alt="Google logo" />login with Google</button>
         <button class="design-btn"><img src="/images/facebook.svg" alt="Facebook logo" />login with Facebook</button> -->
-        <h1>Register New Admin</h1>
-        <section class="mt-3">
-          <ul class="errors"></ul>
-          <div>
-            <label for="name" class="form-label labelName"></label>
-            <input
-              type="text"
-              placeholder="nombre"
-              value="<%= locals.oldData ? oldData.name : null%>"
-              class="design-input input-name"
-              id="name"
-              name="name"
-            />
-            <% if (locals.errors && errors.name){ %>
-            <div class="text-danger">
-              <p><%= errors.name.msg %></p>
+          <h1 style="font-family: 'Smooch Sans', sans-serif; color: black">Register New Admin</h1>
+          <section class="mt-3">
+            <ul class="errors"></ul>
+            <div>
+              <label for="name" class="form-label labelName"></label>
+              <input
+                type="text"
+                placeholder="nombre"
+                value="<%= locals.oldData ? oldData.name : null%>"
+                class="design-input input-name"
+                id="name"
+                name="name"
+              />
+              <% if (locals.errors && errors.name){ %>
+              <div class="text-danger">
+                <p><%= errors.name.msg %></p>
+              </div>
+              <% } %>
             </div>
-            <% } %>
-          </div>
-          <div>
-            <label for="userName" class="form-label labelUsername"></label>
-            <input
-              type="text"
-              placeholder="choose username"
-              value="<%= locals.oldData ? oldData.userName : null%>"
-              class="design-input input-userName"
-              id="userName"
-              name="userName"
-            />
-            <% if (locals.errors && errors.userName){ %>
-            <div class="text-danger">
-              <p><%= errors.userName.msg %></p>
+            <div>
+              <label for="userName" class="form-label labelUsername"></label>
+              <input
+                type="text"
+                placeholder="choose username"
+                value="<%= locals.oldData ? oldData.userName : null%>"
+                class="design-input input-userName"
+                id="userName"
+                name="userName"
+              />
+              <% if (locals.errors && errors.userName){ %>
+              <div class="text-danger">
+                <p><%= errors.userName.msg %></p>
+              </div>
+              <% } %>
             </div>
-            <% } %>
-          </div>
-          <div>
-            <label for="email" class="form-label labelEmail"></label>
-            <input
-              type="text"
-              placeholder="email"
-              value="<%= locals.oldData ? oldData.email : null%>"
-              class="design-input input-email"
-              id="email"
-              name="email"
-            />
-            <% if (locals.errors && errors.email){ %>
-            <div class="text-danger">
-              <p><%= errors.email.msg %></p>
+            <div>
+              <label for="email" class="form-label labelEmail"></label>
+              <input
+                type="text"
+                placeholder="email"
+                value="<%= locals.oldData ? oldData.email : null%>"
+                class="design-input input-email"
+                id="email"
+                name="email"
+              />
+              <% if (locals.errors && errors.email){ %>
+              <div class="text-danger">
+                <p><%= errors.email.msg %></p>
+              </div>
+              <% } %>
             </div>
-            <% } %>
-          </div>
-          <div>
-            <label for="password" class="form-label labelPassword"></label>
-            <input
-              type="password"
-              placeholder="password"
-              class="design-input input-password"
-              id="password"
-              name="password"
-            />
-            <% if (locals.errors && errors.password){ %>
-            <div class="text-danger">
-              <p><%= errors.password.msg %></p>
+            <div>
+              <label for="password" class="form-label labelPassword"></label>
+              <input
+                type="password"
+                placeholder="password"
+                class="design-input input-password"
+                id="password"
+                name="password"
+              />
+              <% if (locals.errors && errors.password){ %>
+              <div class="text-danger">
+                <p><%= errors.password.msg %></p>
+              </div>
+              <% } %>
             </div>
-            <% } %>
-          </div>
-          <div>
-            <label for="rpassword" class="form-label labelRpassword"></label>
-            <input
-              type="password"
-              placeholder="repeat password"
-              class="design-input input-rPassword"
-              id="rpassword"
-              name="passwordCheck"
-            />
-            <% if (locals.errors && errors.passwordCheck){ %>
-            <div class="text-danger">
-              <p><%= errors.passwordCheck.msg %></p>
+            <div>
+              <label for="rpassword" class="form-label labelRpassword"></label>
+              <input
+                type="password"
+                placeholder="repeat password"
+                class="design-input input-rPassword"
+                id="rpassword"
+                name="passwordCheck"
+              />
+              <% if (locals.errors && errors.passwordCheck){ %>
+              <div class="text-danger">
+                <p><%= errors.passwordCheck.msg %></p>
+              </div>
+              <% } %>
             </div>
-            <% } %>
-          </div>
-          <div class="flex-column mt-2">
-            <label for="avatar" class="form-label labelAvatar">Sube tu avatar</label>
-            <input
-              type="file"
-              class="design-input input-avatar"
-              placeholder="avatar"
-              id="inputFile"
-              accept="image/*"
-              multiple
-              name="avatar"
-            />
-            <% if (locals.errors && errors.avatar){ %>
-            <div class="text-danger">
-              <p><%= errors.avatar.msg %></p>
+            <div class="flex-column mt-2">
+              <label for="avatar" class="form-label labelAvatar">Sube tu avatar</label>
+              <input
+                type="file"
+                class="design-input input-avatar"
+                placeholder="avatar"
+                id="inputFile"
+                accept="image/*"
+                multiple
+                name="avatar"
+              />
+              <% if (locals.errors && errors.avatar){ %>
+              <div class="text-danger">
+                <p><%= errors.avatar.msg %></p>
+              </div>
+              <% } %>
             </div>
-            <% } %>
-          </div>
-        </section>
-        <button type="submit" class="design-btn mt-3">REGISTER</button>
-      </form>
+          </section>
+          <button type="submit" class="design-btn mt-3">REGISTER</button>
+        </form>
       </section>
     </main>
 
