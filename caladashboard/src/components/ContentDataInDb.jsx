@@ -1,7 +1,6 @@
 import React from 'react';
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import SmallCard from './SmallCard';
-
 
 const ContentDataInDb = () => {
   const [productsCount, setProductsCount] = useState(0);
@@ -27,25 +26,20 @@ const ContentDataInDb = () => {
   };
 
   useEffect(() => {
-    getProductsData()
-    getUsersData()
-    getCategoriesData()
-  }, [])
+    getProductsData();
+    getUsersData();
+    getCategoriesData();
+  }, []);
 
   return (
-
     <>
-
-      <div className="row">
-
+      <div className='row'>
         <SmallCard count={productsCount} title='Calamardos in DB' color='primary' icon='fa-clipboard-list' />
-        <SmallCard count={usersCount} title='Usuers in DB' color='success' icon='fa-user-check' />
+        <SmallCard count={usersCount} title='Users in DB' color='success' icon='fa-user-check' />
         <SmallCard count={categoriesCount} title='Categories in DB' color='warning' icon='fa-award' />
-
       </div>
-
     </>
-  )
-}
+  );
+};
 
 export default ContentDataInDb;

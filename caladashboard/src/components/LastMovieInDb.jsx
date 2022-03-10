@@ -3,7 +3,6 @@ import imageProduct from '../assets/images/ryu.jpg'
 
 const LastMovieInDb = (props) => {
   const lastProduct = props.product;
-  console.log(lastProduct);
 
   return (
     <>

@@ -9,25 +9,22 @@ function ContentRowCenter() {
     const response = await fetch('http://localhost:3001/api/products');
     const data = await response.json();
     setProduct(data.data);
-    console.log(product)
   };
 
   useEffect(() => {
-    getProductsData()
-  }, [])
+    getProductsData();
+  }, []);
 
   return (
-    <div className="row">
-
+    <div className='row'>
       {/*<!-- Last Movie in DB -->*/}
       <LastMovieInDb product={product} />
       {/*<!-- End content row last movie in Data Base -->*/}
 
       {/*<!-- Genres in DB -->*/}
       <GenresInDb />
-
     </div>
-  )
+  );
 }
 
 export default ContentRowCenter;
