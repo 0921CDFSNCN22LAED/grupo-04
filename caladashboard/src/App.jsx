@@ -1,14 +1,9 @@
 import './App.css';
-import './assets/css/app.css'
-import { Routes, Route } from 'react-router-dom'
+import './assets/css/app.css';
+import { Routes, Route } from 'react-router-dom';
 import Home from './views/Home';
-// import Dashboard from './views/Tables';
-// import Categories from './views/Categories';
 import Chart from './components/Chart';
-import LastMovieInDb from './components/LastMovieInDb';
-// import GenresInDb from './components/CategoriesInDb';
 import ContentDataInDb from './components/ContentDataInDb';
-import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import Categories from './components/CategoriesInDb';
 import NotFound from './views/Error';

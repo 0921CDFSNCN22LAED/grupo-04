@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const Chart = (props) => {
-  console.log(props.data);
+const Chart = () => {
+  const [products, setProducts] = useState(null);
+
+  const getProductsData = async () => {
+    const response = await fetch('http://localhost:3001/api/products');
+    const data = await response.json();
+    setProducts(data.data);
+  };
+
+  useEffect(() => {
+    getProductsData();
+  }, []);
+
   return (
-    /* <!-- DataTales Example --> */
     <>
-      {props.data && (
+      {products && (
         <>
           <div className='card shadow mb-4'>
             <div className='card-body'>
@@ -20,7 +30,7 @@ const Chart = (props) => {
                     <tr>
                       <td>
                         <ul>
-                          {props.data.slice(0, 10).map((product, i) => (
+                          {products.slice(0, 10).map((product, i) => (
                             <li key={`product ${i}`}>{product.name}</li>
                           ))}
                         </ul>
