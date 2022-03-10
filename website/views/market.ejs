@@ -50,7 +50,7 @@
               <h5 class="card-title"> <%= card.name %> </h5>
               <!-- <p class="card-text"> <%= card.description %> </p> -->
               <div class="d-flex justify-content-between">
-                <a href=""><i class="fas fa-cart-plus"></i></a>
+                <i class="fas fa-cart-plus"></i>
                 <!-- modal detalle producto -->
                 <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalArt<%= card.id %>">
                   VER
@@ -81,11 +81,11 @@
                           </div>
                         </div>
                         <div class="d-flex justify-content-between">
-                          <a href=""><i class="fas fa-cart-plus"></i></a>
+                         <i class="fas fa-cart-plus"></i>
                           <div>
                           <i class="fas fa-gem mx-1"></i> <%= card.price %> ETH
                           </div>
-                          <a href=""><i class="far fa-heart"></i></a>
+                          <!-- <i class="far fa-heart"></i> -->
                         </div>
                       </div>
                        <!-- fin tarjeta detalle del producto dentro del modal-->
@@ -100,7 +100,7 @@
                 <div>
                 <i class="fas fa-gem mx-1"></i> <%= card.price %> ETH
               </div>
-                <a href=""><i class="far fa-heart"></i></a>
+                <i class="far fa-heart"></i>
               </div>
             </div>
           </div>
@@ -122,6 +122,7 @@
 <!-- fin footer -->
 
 <!-- Scripts -->
+<script src="/js/like.js"></script>
 <%- include("./partials/Scripts") %>
 
   </body>
