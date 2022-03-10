@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
   const validarFormulario = (e) => {
     switch (e.target.name) {
       case 'name':
-        if (name.value.length <=3) {
+        if (name.value.length <3) {
           labelName.innerText = "El nombre debe tener mas de 2 caracteres";
           labelName.classList.add('text-danger');
           inputName.classList.remove('border', 'border-success');
@@ -36,8 +36,8 @@ window.addEventListener('load', () => {
         }
         break;
       case 'userName':
-        if (userName.value.length <= 1 || userName.value.length > 20) {
-          labeluserName.innerText = "El username debe tener entre 2 y 20 caracteres";
+        if (userName.value.length < 3 || userName.value.length > 20) {
+          labeluserName.innerText = "El username debe tener mas de 2 caracteres y menos de 20";
           labeluserName.classList.add('text-danger');
           inputUserName.classList.remove('border', 'border-success');
         } else {
@@ -58,8 +58,8 @@ window.addEventListener('load', () => {
         }
         break;
       case 'password':
-        if (password.value.length <= 7 || password.value.length > 20) {
-          labelPassword.innerText = "La contraseña debe tener entre 8 y 20 caracteres";
+        if (password.value.length < 5) {
+          labelPassword.innerText = "La contraseña debe tener minimo 5 caracteres";
           labelPassword.classList.add('text-danger');
           inputPassword.classList.remove('border', 'border-success');
         } else {
@@ -69,8 +69,8 @@ window.addEventListener('load', () => {
         }
         break;
       case 'passwordCheck':
-        if (rpassword.value.length <= 7 || rpassword.value.length > 20) {
-          labelRpassword.innerText = "La contraseña debe tener entre 8 y 20 caracteres";
+        if (rpassword.value.length < 5) {
+          labelRpassword.innerText = "La contraseña debe tener minimo 5 caracteres";
           labelRpassword.classList.add('text-danger');
           inputRpassword.classList.remove('border', 'border-success');
         } else {
