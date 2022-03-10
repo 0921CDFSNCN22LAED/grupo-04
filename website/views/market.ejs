@@ -20,8 +20,8 @@
     <main class="container body-container">
       <section class="">
         <div>
-          <h2>Welcome to Calamarket!</h2>
-          <p>Discover the art of the future, welcome to a new age!</p>
+          <h2  style="font-family: 'Smooch Sans', sans-serif; color: black; font-weight: bolder">Welcome to Calamarket!</h2>
+          <p  style="font-family: 'Smooch Sans', sans-serif; color: black; font-weight: bolder">Discover the art of the future, welcome to a new age!</p>
 
           <!-- inicio boton categorias -->
           <div class="dropend mt-2 d-flex justify-content-start">
@@ -30,19 +30,19 @@
                 <option selected>CATEGORIAS</option>
                 <% for(let category of categories){ %>
                 <option value="<%= category.id %>" ><%= category.name %></option>
-                <% } %> 
+                <% } %>
               </select>
               <button type="submit" class="btn btn-outline-success mt-2">Filtrar</button>
-            </form>  
-          </div>            
+            </form>
+          </div>
         </div>
          <!-- fin boton categorias -->
 
          <!--inicio mas vistos -->
         <h2 class="mt-3 mb-5">Mas vistos</h2>
         <section class="container-xxl sec-product d-flex flex-column-xs flex-wrap row-cols-3 justify-content-center ">
-  
-        <% for(let card of listCards){ %>   
+
+        <% for(let card of listCards){ %>
           <!-- inicio articulo -->
            <div class="card mb-3 mx-3 shadow col" style="width: 18rem;">
             <img src="<%= card.image %>" class="card-img-top" alt="...">
@@ -106,7 +106,7 @@
           </div>
            <!-- fin articulo -->
           <% } %>
-       
+
          <!-- fin mas vistos -->
 
       </section>
