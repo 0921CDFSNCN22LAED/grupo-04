@@ -24,12 +24,15 @@
 
           <!-- inicio boton categorias -->
           <div class="dropend mt-2 d-flex justify-content-start">
-          <button class="design-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">CATEGORIAS</button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <% for(let category of categories){ %>
-            <li><a class="dropdown-item" href="#"><%= category.name %></a></li>
-            <% } %>
-          </ul>
+            <form action="/market/filter" method="POST">
+              <select class="form-select" aria-label="Default select example" name="search">
+                <option selected>CATEGORIAS</option>
+                <% for(let category of categories){ %>
+                <option value="<%= category.id %>" ><%= category.name %></option>
+                <% } %> 
+              </select>
+              <button type="submit" class="btn btn-outline-success mt-2">Filtrar</button>
+            </form>  
           </div>
         </div>
          <!-- fin boton categorias -->
