@@ -74,21 +74,30 @@ function removeItem(e){
 };
 
 btnBuy.addEventListener('click', () => {
-  articleContainer.innerHTML = '';
-  updateCartTotal();
-  Swal.fire({
-    title: 'Gracias por tu compra! Ya sos Team Calamardo!',
-    width: 600,
-    padding: '3em',
-    color: '#716add',
-    background: '#fff url(https://sweetalert2.github.io/images/trees.png)',
-    backdrop: `
-      rgba(0,0,123,0.4)
-      url("https://sweetalert2.github.io/images/nyan-cat.gif")
-      left top
-      no-repeat
-    `
-  });
+  if(document.querySelector('.article-item')){
+
+    articleContainer.innerHTML = '';
+    updateCartTotal();
+    Swal.fire({
+      title: 'Gracias por tu compra! Ya sos Team Calamardo!',
+      width: 600,
+      padding: '3em',
+      color: '#716add',
+      background: '#fff url(https://sweetalert2.github.io/images/trees.png)',
+      backdrop: `
+        rgba(0,0,123,0.4)
+        url("https://sweetalert2.github.io/images/nyan-cat.gif")
+        left top
+        no-repeat
+      `
+    });
+  }else{
+    Swal.fire({
+      icon: 'question',
+      title: 'Oops...',
+      text: 'Todavia no has elegido ningun Calamardo!',
+    })
+  }
 
 });
 
