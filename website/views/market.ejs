@@ -68,12 +68,15 @@
                         <div class="card mb-3" style="max-width: 540px;">
                           <div class="row g-0">
                             <div class="col-md-4">
-                              <img src="<%= card.image %>" class="img-fluid rounded-start" alt="...">
+                              <img src="<%= card.image %>" class="img-fluid rounded-start item-image" alt="...">
                             </div>
                             <div class="col-md-8">
                               <div class="card-body">
-                                <h5 class="card-title">Nombre: <%= card.name %></h5>
-                                <p>Categoria: <%= card.category_id %></p>
+                                <h5 class="card-title">Nombre: <%= card.name %></h5>                                
+                                <% categories.forEach(element => { %>
+                                <%  if(element.id == card.category_id){ %>                                  
+                                    <p>Categoria: <%= element.name %></p>                                  
+                               <% }}) %> 
                                 <h6>Fecha de creacion: <%= card.create_data %> </h6>
                                 <p class="card-text"> <%= card.description %> </p>
                               </div>
@@ -81,8 +84,8 @@
                           </div>
                         </div>
                         <div class="d-flex justify-content-between">
-                         <i class="fas fa-cart-plus"></i>
-                          <div>
+                         <!-- <i class="fas fa-cart-plus"></i> -->
+                          <div class="item-price">
                           <i class="fas fa-gem mx-1"></i> <%= card.price %> ETH
                           </div>
                           <!-- <i class="far fa-heart"></i> -->
@@ -91,7 +94,7 @@
                        <!-- fin tarjeta detalle del producto dentro del modal-->
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-outline-success">Comprar</button>
+                        <!-- <button type="button" class="btn btn-outline-success">Comprar</button> -->
                       </div>
                     </div>
                   </div>
@@ -122,7 +125,6 @@
 <!-- fin footer -->
 
 <!-- Scripts -->
-<script src="/js/like.js"></script>
 <%- include("./partials/Scripts") %>
 
   </body>

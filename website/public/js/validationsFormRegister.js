@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
   const validarFormulario = (e) => {
     switch (e.target.name) {
       case 'name':
-        if (name.value.length <3) {
+        if (name.value.trim().length <3) {
           labelName.innerText = "El nombre debe tener mas de 2 caracteres";
           labelName.classList.add('text-danger');
           inputName.classList.remove('border', 'border-success');
@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
         }
         break;
       case 'userName':
-        if (userName.value.length < 3 || userName.value.length > 20) {
+        if (userName.value.trim().length < 3 || userName.value.trim().length > 20) {
           labeluserName.innerText = "El username debe tener mas de 2 caracteres y menos de 20";
           labeluserName.classList.add('text-danger');
           inputUserName.classList.remove('border', 'border-success');
@@ -47,7 +47,8 @@ window.addEventListener('load', () => {
         }
         break;
       case 'email':
-        if (email.value.length <= 1 || email.value.length > 20) {
+        const regEmail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-.]+$/;
+          if(!regEmail.test(email.value)){
           labelEmail.innerText = "El mail debe ser valido";
           labelEmail.classList.add('text-danger');
           inputEmail.classList.remove('border', 'border-success');
@@ -58,7 +59,7 @@ window.addEventListener('load', () => {
         }
         break;
       case 'password':
-        if (password.value.length < 5) {
+        if (password.value.trim().length < 5) {
           labelPassword.innerText = "La contraseña debe tener minimo 5 caracteres";
           labelPassword.classList.add('text-danger');
           inputPassword.classList.remove('border', 'border-success');
@@ -69,7 +70,7 @@ window.addEventListener('load', () => {
         }
         break;
       case 'passwordCheck':
-        if (rpassword.value.length < 5) {
+        if (rpassword.value.trim().length < 5) {
           labelRpassword.innerText = "La contraseña debe tener minimo 5 caracteres";
           labelRpassword.classList.add('text-danger');
           inputRpassword.classList.remove('border', 'border-success');
@@ -103,20 +104,21 @@ window.addEventListener('load', () => {
   });
   
   form.addEventListener('submit', (e) => {
+    ulErrors.innerHTML = '';
     let errors = [];
-    if (name.value == '') {
+    if (name.value.trim() == '') {
       errors.push('El campo Nombre no puede quedar vacio');
     }
-    if (userName.value == '') {
+    if (userName.value.trim() == '') {
       errors.push('El campo Username no puede quedar vacio');
     }
-    if (email.value == '') {
+    if (email.value.trim() == '') {
       errors.push('El campo Email no puede quedar vacio');
     }
-    if (password.value == '') {
+    if (password.value.trim() == '') {
       errors.push('El campo Password no puede quedar vacio');
     }
-    if (rpassword.value == '') {
+    if (rpassword.value.trim() == '') {
       errors.push('El campo Repeat Password no puede quedar vacio');
     }
     if (inputAvatar.value == '') {
@@ -133,7 +135,10 @@ window.addEventListener('load', () => {
         ulErrors.innerHTML += `<li>${error}<li>`;
       })
     } else {
-      alert('El usuario paso las validaciones del front')
+      Swal.fire(
+        'El usuario paso las validaciones del front!',
+        'success'
+      );
     }
   
   })

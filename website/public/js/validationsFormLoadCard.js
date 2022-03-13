@@ -21,7 +21,7 @@ window.addEventListener('load', () => {
   const validarFormulario = (e) => {
     switch (e.target.name){
       case 'name':
-        if(inputName.value.length <=3){
+        if(inputName.value.trim().length <=3){
           labelName.innerText = "El nombre debe tener mas de 2 caracteres";
           labelName.classList.add('text-danger');
           inputName.classList.remove('border', 'border-success');
@@ -48,7 +48,7 @@ window.addEventListener('load', () => {
           break;
         case 'rating':
           // ver verificar que sea un numero comprendido entre el 1 y el 10
-          if(inputRating.value.length < 1 || inputRating.value.length >= 3) {
+          if(inputRating.value.trim().length < 1 || inputRating.value.length >= 3) {
             labelRating.innerText = "Debes darle un rating, un numero entre 1 y 10";
             labelRating.classList.add('text-danger');
             inputRating.classList.remove('border', 'border-success');
@@ -59,7 +59,7 @@ window.addEventListener('load', () => {
           }
           break;
         case 'price':
-          if(inputPrice.value.length < 1 || inputPrice.value.length >= 6){
+          if(inputPrice.value.trim().length < 1 || inputPrice.value.length >= 7){
             labelPrice.innerText = "Debes darle un precio, un numero entre 0 y 1, con un maximo de 4 decimales";
             labelPrice.classList.add('text-danger');
             inputPrice.classList.remove('border', 'border-success');
@@ -70,7 +70,7 @@ window.addEventListener('load', () => {
           }
           break;
         case 'desc':
-          if(inputDesc.value == ''){
+          if(inputDesc.value.trim() == ''){
             labelDesc.innerText = "Debes escribir una descripcion";
             labelDesc.classList.add('text-danger');
             inputDesc.classList.remove('border', 'border-success');
@@ -81,7 +81,7 @@ window.addEventListener('load', () => {
           }
           break;
         case 'date':
-          if(inputDate.value == ''){
+          if(inputDate.value.trim() == ''){
             labelDate.innerText = "Debes seleccionar una fecha";
             labelDate.classList.add('text-danger');
             inputDate.classList.remove('border', 'border-success');
@@ -103,26 +103,27 @@ window.addEventListener('load', () => {
   inputDesc.addEventListener('blur', validarFormulario);
 
   form.addEventListener('submit', (e) => {
+    ulErrors.innerHTML = '';
     let errors = [];
-    if (inputName.value == '') {
+    if (inputName.value.trim() == '') {
       errors.push('El campo Nombre no puede quedar vacio');
     }
-    if (inputRating.value == '') {
+    if (inputRating.value.trim() == '') {
       errors.push('El campo Rating no puede quedar vacio');
     }
     if (inputImage.value == '') {
       errors.push('El campo Imagen no puede quedar vacio');
     }
-    if (inputCategories.value == '') {
+    if (inputCategories.value.trim() == '') {
       errors.push('El campo categoria no puede quedar vacio');
     }
-    if (inputDate.value == '') {
+    if (inputDate.value.trim() == '') {
       errors.push('El campo Fecha no puede quedar vacio');
     }
-    if (inputDesc.value == '') {
+    if (inputDesc.value.trim() == '') {
       errors.push('El campo Descripcion no puede quedar vacio');
     }
-    if(inputPrice.value == ''){
+    if(inputPrice.value.trim() == ''){
       errors.push('El campo Price no puede quedar vacio');
     }
 
@@ -136,7 +137,10 @@ window.addEventListener('load', () => {
         ulErrors.innerHTML += `<li>${error}<li>`;
       })
     } else {
-      alert('El usuario paso las validaciones del front')
+      Swal.fire(
+        'El usuario paso las validaciones del front!',
+        'success'
+      );
     }
   
   })

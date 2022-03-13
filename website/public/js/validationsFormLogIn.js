@@ -13,14 +13,9 @@ window.addEventListener('load', () => {
   const validarFormulario = (e) => {
     switch (e.target.name) {
       case 'email':
-        const reg = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
-        if (email.value.length <= 3) {
-          // if(!email.include('@')){
-          //   labelEmail.innerText = "Debes ingresar un email valido";
-          //   labelEmail.classList.add('text-danger');
-          //   inputEmail.classList.remove('border', 'border-success');
-          // }
-          labelEmail.innerText = "Debes ingresar un email";
+        const reg = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-.]+$/;
+          if(!reg.test(email.value.trim())){
+          labelEmail.innerText = "El mail debe ser valido";
           labelEmail.classList.add('text-danger');
           inputEmail.classList.remove('border', 'border-success');
         } else {
@@ -30,7 +25,7 @@ window.addEventListener('load', () => {
         }
         break;
       case 'password':
-        if (password.value.length <= 1) {
+        if (password.value.trim().length <= 1) {
           labelPassword.innerText = "Debes escribir una contraseña";
           labelPassword.classList.add('text-danger');
           inputPassword.classList.remove('border', 'border-success');
@@ -50,24 +45,27 @@ window.addEventListener('load', () => {
   
   
   form.addEventListener('submit', (e) => {
+    ulErrors.innerHTML = '';
     let errors = [];
-    if (email.value == '') {
+    if (email.value.trim() == '') {
       errors.push('El campo Email no puede quedar vacio');
     }
-    if (password.value == '') {
+    if (password.value.trim() == '') {
       errors.push('El campo Password no puede quedar vacio');
     }
-  
+
+    
     if (errors.length > 0) {
       e.preventDefault();
       errors.forEach(error => {
         ulErrors.classList.add('alert-warning');
         ulErrors.innerHTML += `<li>${error}<li>`;
-        // hacer que no se sumen devuelta los errores al ul
-        // y desaparezca el que esta valdidado
       })
     } else {
-      alert('El usuario paso las validaciones del front')
+      Swal.fire(
+        'El usuario paso las validaciones del front!',
+        'success'
+      );
     }
   
   })
