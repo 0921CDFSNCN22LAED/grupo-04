@@ -9,26 +9,35 @@ addCarts.forEach(cart => {
     if(cart.classList.contains('text-secondary')){
       // console.log('puse carrito');
       addCardInCartClicked(e);      
-    }else{
-      console.log(e.target);
-    }
-  })
+    };
+  });
 });
 
 function addCardInCartClicked(e){
   const btnCart = e.target;
-  // console.log(btnCart);
   const item = btnCart.closest('.card-body');
   const itemTitle = item.querySelector('.card-title').textContent.trim();
   const itemImage = item.querySelector('.item-image').src;
   const itemPrice = item.querySelector('.item-price').textContent.trim();
-  addItemToCart(itemTitle, itemImage, itemPrice);
+  const itemId = item.querySelector('.item-id').textContent.trim();
+  addItemToCart(itemTitle, itemImage, itemPrice, itemId);
 };
 
-function addItemToCart(itemTitle, itemImage, itemPrice){
+function addItemToCart(itemTitle, itemImage, itemPrice, itemId){
+  const allItemsId = articleContainer.querySelectorAll('.item-id');
+
+  for (let i = 0; i < allItemsId.length; i++){
+    if(allItemsId[i].innerText === itemId){
+      const item = allItemsId[i].innerText;
+      // return para que salga de la funcion y no lo duplique
+      return Swal.fire(`El producto id: ${item} ya se encuentra agregado al carrito`); 
+    };
+  };
+
  const oneItem = document.createElement('article');
  const cardContent = `
  <div class="d-flex article-item">
+ <p class="invisible item-id">${itemId}</p>
  <div class="card mb-3 mx-3 col-xxl card-cart" style="width: 8rem;">
    <img src=${itemImage} class="card-img-top" alt="...">
    <div class="card-body">
@@ -60,9 +69,7 @@ function updateCartTotal(){
   itemsInCart.forEach(item => {
     const elementItemPrice = item.querySelector('.item-price');
     const itemPrice = Number(elementItemPrice.textContent.replace('ETH', ''));
-    // console.log(itemPrice);
     total += itemPrice;
-    // console.log(total);
   })
   totalCart.innerHTML = `<p3 class="total">Total:<i class="fas fa-gem mx-1"></i>${total.toFixed(4)} ETH</p3>`;
 };
@@ -75,7 +82,6 @@ function removeItem(e){
 
 btnBuy.addEventListener('click', () => {
   if(document.querySelector('.article-item')){
-
     articleContainer.innerHTML = '';
     updateCartTotal();
     Swal.fire({
@@ -97,9 +103,7 @@ btnBuy.addEventListener('click', () => {
       title: 'Oops...',
       text: 'Todavia no has elegido ningun Calamardo!',
     })
-  }
-
+  };
 });
-
 
 });
