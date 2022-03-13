@@ -43,6 +43,18 @@ module.exports = {
     })
    },
 
+   updateOne(id, dato, file){
+    return db.Users.findByPk(id).then( user => 
+      user.update({
+            name: dato.name,
+            user_name: dato.userName,
+            email: dato.email,
+            avatar: file ? '/images/avatars/' + file.filename : user.avatar,
+            // password: bcrypt.hashSync(dato.password, 10),
+            // passwordCheck: bcrypt.hashSync(dato.passwordCheck, 10),      
+      }))
+  },
+
    deleteOne(id){
     return db.Users.destroy({
       where: {

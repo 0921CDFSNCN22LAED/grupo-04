@@ -29,13 +29,17 @@ router.get('/admin', authMiddleware, adminMiddleware, controlador.registerAdmin)
 // Procesa el form del Admin
 router.post('/admin', uploadFile.single('avatar'), userValidations, controlador.processRegisterAdmin);
 
-// Vista edit usuarios
+// Vista edit usuarios, solo Admin
 router.get('/edit', authMiddleware, adminMiddleware, controlador.listUsers);
-// Procesa Borrado de usuarios
+// Procesa Borrado de usuarios, solo Admin
 router.delete('/:id', authMiddleware, controlador.destroyUser);
 
 // Vista Profile
 router.get('/profile', authMiddleware, controlador.profile);
+// Vista Edit profile
+router.get('/edit/:id', authMiddleware, controlador.edit);
+//Procesa Edit Profile
+router.put('/edit/:id', uploadFile.single('avatar'), controlador.update);
 
 // Logout
 router.get('/logout', authMiddleware, controlador.logout);

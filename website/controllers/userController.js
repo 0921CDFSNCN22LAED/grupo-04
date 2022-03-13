@@ -152,6 +152,26 @@ const controllador = {
     }    
   },
 
+  edit: async (req, res) => {
+    const id = req.params.id;
+    const findUser = await usersModel.findByPK(id);
+      res.render('userEdit', {
+        pageTitle: 'Edit My Profile - ',
+        user: findUser,
+      });
+    
+  },
+
+  update: (req, res) => {
+    const id = req.params.id;
+    const dato = req.body;
+    const file = req.file;
+    usersModel.updateOne(id, dato, file)
+    .then(() => {
+      res.redirect('/user/profile');
+    })
+  },
+
   listUsers: (req, res) => {
     usersModel.listUsers()
     .then(listUsers => {

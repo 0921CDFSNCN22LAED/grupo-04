@@ -86,7 +86,7 @@
 
       <div class="input-group mt-3">
         <label for="rating" class="input-group-text design-input"><i class="fas fa-award mx-1"></i></label>
-        <input type="number" class="form-control design-input input-rating" placeholder="rating" aria-describedby="basic-addon1" name="rating" value="<%= locals.oldData ? oldData.rating : null%>">
+        <input type="number" min=0 max=10 class="form-control design-input input-rating" placeholder="rating" aria-describedby="basic-addon1" name="rating" value="<%= locals.oldData ? oldData.rating : null%>">
         <span class="input-group-text design-input">Rating</span>
         <% if (locals.errors && errors.rating){ %>
           <div class="text-danger">

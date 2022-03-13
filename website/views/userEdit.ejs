@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/Head") %>
+  </head>
+
+  <body class="bg_secondary">
+    <!-- inicio barra de navegacion -->
+    <header><%- include("./partials/NavBar") %></header>
+    <!-- fin barra de navegacion -->
+
+    <main class="container body-container">
+      <section>
+      <form action="/user/edit/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+          <!-- <button class="design-btn" type="button">
+            <img src="/images/google-logo.svg" alt="Google logo" />login with Google
+          </button>
+          <button class="design-btn" type="button">
+            <img src="/images/facebook.svg" alt="Facebook logo" />login with Facebook
+          </button> -->
+          <h1 style="font-family: 'Smooch Sans', sans-serif; color: black">Edit My Profile</h1>
+          <h3>Edit only the fields you want to change</h3>
+          <section class="mt-3">
+            <ul class="errors"></ul>
+            <div>
+              <label for="name" class="form-label labelName"></label>
+              <input
+                type="text"
+                placeholder="name"
+                value="<%= user.name %>"
+                class="design-input input-name"
+                id="name"
+                name="name"
+              />
+            </div>
+            <div>
+              <label for="userName" class="form-label labelUsername"></label>
+              <input
+                type="text"
+                placeholder="choose username"
+                value="<%= user.user_name %>"
+                class="design-input input-userName"
+                id="userName"
+                name="userName"
+              />
+            </div>
+            <div>
+              <label for="email" class="form-label labelEmail"></label>
+              <input
+                type="text"
+                placeholder="email"
+                value="<%= user.email%>"
+                class="design-input input-email"
+                id="email"
+                name="email"
+              />
+            </div>
+            <div class="flex-column mt-2">
+              <label for="avatar" class="form-label labelAvatar">you change avatar?</label>
+              <input
+                type="file"
+                class="design-input input-avatar"
+                placeholder="avatar"
+                id="inputFile"
+                accept="image/*"
+                multiple
+                name="avatar"
+              />
+            </div>
+          </section>
+          <button type="submit" class="design-btn mt-3">GUARDAR</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- inicio footer -->
+
+    <%- include("./partials/Footer") %>
+
+    <!-- fin footer -->
+
+    <!-- Scripts -->
+    <%- include("./partials/Scripts") %>
+  </body>
+</html>
